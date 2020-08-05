@@ -8,11 +8,14 @@
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <b-nav-item href="#"><router-link to="/" class="routerlink">Home</router-link></b-nav-item>
-            <b-nav-item href="#"><router-link to="/reparation" class="routerlink">Réparation</router-link></b-nav-item>
-            <b-nav-item href="#"><router-link to="/config" class="routerlink">Config</router-link></b-nav-item>
-            <b-nav-item href="#"><router-link to="/catalogue" class="routerlink">Catalogue</router-link></b-nav-item>
-            <b-nav-item href="#"><router-link to="/about" class="routerlink">A propos</router-link></b-nav-item>
+            <b-nav-item href="#" to="/">Accueil</b-nav-item>
+            <b-nav-item-dropdown href="#" to="/reparation" text="Réparation">
+              <b-dropdown-item href="#">Smartphone</b-dropdown-item>
+              <b-dropdown-item href="#">Tablette</b-dropdown-item>
+              <b-dropdown-item href="#">Ordinateur Portable</b-dropdown-item>
+            </b-nav-item-dropdown>
+            <b-nav-item href="#" to="/config">Config</b-nav-item>
+            <b-nav-item href="#" to="/catalogue">Catalogue</b-nav-item>
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->
@@ -29,7 +32,10 @@
               <b-dropdown-item href="#">FA</b-dropdown-item>
             </b-nav-item-dropdown>
 
-            <b-nav-item-dropdown right>
+            <b-nav-item href="#" to="/inscription">Inscription</b-nav-item>
+            <b-nav-item href="#" to="/connexion">Connexion</b-nav-item>
+
+            <b-nav-item-dropdown right disabled=true>
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
                 <em>User</em>
@@ -50,9 +56,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.routerlink {
-  display: block;
-  color: rgb(221, 251, 255);
-}
-</style>
+<style scoped></style>
