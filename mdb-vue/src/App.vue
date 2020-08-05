@@ -1,16 +1,30 @@
 <template>
   <div id="app">
-    <router-view/>
+     <Header /> 
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+<script>
+import Header from "./components/layout/Header";
+export default {
+  name: "app",
+  components: {
+    Header
+  }
+};
+</script>
 
+<style>
 #app {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  margin-top: 150px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
 }
 </style>
