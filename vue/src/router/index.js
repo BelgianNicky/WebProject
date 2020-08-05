@@ -38,10 +38,16 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/Catalogue.vue"),
   },
   {
-    path: "/connecter",
-    name: "Connecter",
+    path: "/connexion",
+    name: "Connexion",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Connecter.vue"),
+      import(/* webpackChunkName: "about" */ "../views/Connexion.vue"),
+  },
+  {
+    path: "/inscription",
+    name: "Inscription",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Inscription.vue"),
   },
 ];
 
