@@ -1,16 +1,17 @@
 <template>
   <div class="home">
-    <h1>Bienvenue chez FixScreen</h1>
-
-    <ul>
-      Nos heures d'ouvertures sont :
-      <li>Lundi : 9h-12h | 13h30-17h</li>
-      <li>Mardi : 9h-12h | 13h30-17h</li>
-      <li>Mercredi : 9h-12h | 13h30-15h</li>
-      <li>Jeudi : 9h-12h | 13h30-17h</li>
-      <li>Vendredi : 9h-12h | 13h30-15h</li>
-      <li>Samedi : 9h-13h</li>
-    </ul>
+    <div class="banner">
+        <h1>Bienvenue chez FixScreen</h1>
+        <ul>
+          Nos heures d'ouvertures sont :
+          <li>Lundi : 9h-12h | 13h30-17h</li>
+          <li>Mardi : 9h-12h | 13h30-17h</li>
+          <li>Mercredi : 9h-12h | 13h30-15h</li>
+          <li>Jeudi : 9h-12h | 13h30-17h</li>
+          <li>Vendredi : 9h-12h | 13h30-15h</li>
+          <li>Samedi : 9h-13h</li>
+        </ul>
+    </div>
   </div>
 </template>
 
@@ -21,6 +22,15 @@ export default {
 </script>
 
 <style scoped>
+
+.banner{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(135, 174, 209);
+    background-image: url(../assets/home_banner.png), url(../assets/home_banner.png); 
+    background-position: 100% 60%, 0% 60%;
+    background-repeat: no-repeat;
+}
 * {
   box-sizing: border-box;
   margin: 0;
