@@ -24,20 +24,24 @@ export default {
 <style scoped>
 
 .banner{
+    color: white;
     padding-top: 30px;
     padding-bottom: 30px;
     background-color: rgb(135, 174, 209);
-    background-image: url(../assets/home_banner.png), url(../assets/home_banner.png); 
+    /*background-image: url(../assets/home_banner.png), url(../assets/home_banner.png);*/
     background-position: 100% 60%, 0% 60%;
     background-repeat: no-repeat;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: cursive;
 }
 
 body {
+  height: 100%;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
 }
