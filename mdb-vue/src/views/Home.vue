@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="banner">
-        <h1>Bienvenue chez FixScreen</h1>
+        <h1>Bienvenue chez </h1>
         <ul>
           Nos heures d'ouvertures sont :
           <li>Lundi : 9h-12h | 13h30-17h</li>
@@ -12,6 +12,10 @@
           <li>Samedi : 9h-13h</li>
         </ul>
     </div>
+    <div class="container">
+      
+    </div>
+
   </div>
 </template>
 
