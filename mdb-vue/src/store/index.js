@@ -45,7 +45,7 @@ export default new Vuex.Store({
 					source: logo,
 					alt: "logo"
 				},
-        nom: "Proco 1",
+        nom: "Processeur Intel® Core™ i7-8700",
         prix: "3",
         stock: "333",
         description: "BONJOUR JE SUIS UN PROCESSEUR",
@@ -56,7 +56,7 @@ export default new Vuex.Store({
 					source: logo,
 					alt: "logo"
 				},
-        nom: "Proco 2",
+        nom: "Processeur Intel® Core™ i7-9700T",
         prix: "3",
         stock: "333",
         description: "BONJOUR JE SUIS UN PROCESSEUR",
@@ -67,7 +67,7 @@ export default new Vuex.Store({
 					source: logo,
 					alt: "logo"
 				},
-        nom: "Proco 3",
+        nom: "Processeur Intel® Core™ i7-10700K",
         prix: "3",
         stock: "333",
         description: "BONJOUR JE SUIS UN PROCESSEUR",

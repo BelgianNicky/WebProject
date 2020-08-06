@@ -1,9 +1,9 @@
 <template>
   <mdb-card class="menu-item">
-    <mdb-card-image :src="image.source" :alt="image.alt" class="image-item"></mdb-card-image>
+    <mdb-card-image :src="image.source" :alt="image.alt"></mdb-card-image>
     <mdb-card-body>
       <mdb-card-title>{{ name }}</mdb-card-title>
-      <mdb-card-text class="description-item"> {{ description }}</mdb-card-text>
+      <mdb-card-text> {{ description }}</mdb-card-text>
       <mdb-btn color="primary">Ajouter au panier</mdb-btn>
     </mdb-card-body>
   </mdb-card>
@@ -42,14 +42,4 @@
 </script>
 
 <style scoped>
-.image-item{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-    align-items: center;
-}
-.description-item{
-    width: 200px;
-    height: 50px;
-}
 </style>

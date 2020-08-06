@@ -5,7 +5,7 @@
 		<section class="menu">
 			<CatalogueItem
 				v-for="item in processeurs"
-				:name="item.name"
+				:name="item.nom"
 				:image="item.image"
 				:price="item.price"
         :description="item.description"
@@ -37,7 +37,7 @@ export default {
 <style scoped>
 .title{
   margin: 30px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif
+  font-family:Verdana, Tahoma, sans-serif
 }
 .menu {
   margin-top: 100px;
