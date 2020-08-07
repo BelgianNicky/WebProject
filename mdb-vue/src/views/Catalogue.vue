@@ -2,32 +2,46 @@
 	<div class="Catalogue">
 		<h1 class="title">Catalogue</h1>
 
-		<section class="menu">
+		<section class="categories">
+			<Categorie
+				v-for="item in categorie"
+				:categorie="item.nom"
+				:id="item.id"
+				:key="item.nom"
+			/>
+
+		</section>
+		<section class="catalogueItems">
 			<CatalogueItem
-				v-for="item in processeurs"
-				:name="item.nom"
+				v-for="item in catalogueItems"
+				:nom="item.nom"
 				:image="item.image"
-				:price="item.price"
-        :description="item.description"
-				:key="item.name"
+				:prix="item.prix"
+				:inStock="item.inStock"
+				:quantity="item.quantity"
+				:description="item.description"
+				:key="item.nom"
 			/>
 		</section>
 	</div>
 </template>
 
 <script>
+import Categorie from "../components/Categorie"
 import CatalogueItem from "../components/CatalogueItem"
 import { mapState } from "vuex"
 
 export default {
 	name: "Catalogue",
 	components: {
-    CatalogueItem
+		CatalogueItem,
+		Categorie
 	},
 	computed: {
 		...mapState({
 			storeName: "storeName",
-			processeurs: "processeurs",
+			categorie: "categorie",
+			catalogueItems: "catalogueItems",
 		})
 	},
 	methods: {}
@@ -35,20 +49,31 @@ export default {
 </script>
 
 <style scoped>
+.Catalogue{
+	max-width: 1300px;
+	margin: auto;
+}
 .title{
   margin: 30px;
   font-family:Verdana, Tahoma, sans-serif
 }
-.menu {
-  margin-top: 100px;
+.categories {
+	margin-top: 100px;
+	margin-left: 100px;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
+	float:left
 }
-.description {
-	max-width: 960px;
-	font-size: 1.2rem;
-	margin: 0 auto;
+.catalogueItems{
+	width:30%;
+	float:left;
+	padding-top:100px;
+	margin-left:100px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px 20px;
+
 }
 </style>
