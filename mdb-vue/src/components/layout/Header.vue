@@ -1,7 +1,7 @@
 <template>
   <mdb-navbar expand="large" dark color="stylish">
     <mdb-navbar-brand href="https://mdbootstrap.com/">
-      FixScreen
+      {{storeName}}
     </mdb-navbar-brand>
     <mdb-navbar-toggler>
       <mdb-navbar-nav>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import { mdbNavbar, mdbNavbarBrand, mdbNavbarToggler, mdbNavbarNav, mdbNavItem, mdbDropdown, mdbDropdownMenu, mdbDropdownToggle, mdbInput, mdbDropdownItem, mdbBtn,
    mdbFormInline } from 'mdbvue';
   export default {
@@ -47,6 +48,11 @@
       mdbInput,
       mdbBtn,
       mdbFormInline,
+    },
+    computed:{
+      ...mapState({
+        storeName:'storeName'
+      })
     }
   }
 </script>
