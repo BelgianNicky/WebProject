@@ -4,6 +4,7 @@
         <h1>Bienvenue chez </h1>
         <ul>
           Nos heures d'ouvertures sont :
+          <span class="space"></span>
           <li>Lundi : 9h-12h | 13h30-17h</li>
           <li>Mardi : 9h-12h | 13h30-17h</li>
           <li>Mercredi : 9h-12h | 13h30-15h</li>
@@ -57,5 +58,10 @@ ul {
   margin: 40px 0 0;
   list-style-type: none;
   padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+.space{
+  margin:10px;
 }
 </style>

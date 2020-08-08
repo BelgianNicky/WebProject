@@ -1,5 +1,5 @@
 <template>
-  <b-card :img-src="image.source" :img-alt="image.alt" img-height="100px" :title="nom" class="catalogue-item"  img-top>
+  <b-card :img-src="image.source" :img-alt="image.alt" :title="nom" class="catalogue-item"  img-top>
     <b-card-text class="descriptionItem"> {{ description }} </b-card-text>
     <b-card-text class="prixItem">{{ prix }} €</b-card-text>
     <b-button href="#" size="sm" variant="primary">Ajouter au panier</b-button>
@@ -36,8 +36,8 @@ p{
   font-size:1em;
 }
 .catalogue-item{
-  width: 170px;
-  height: 320px;
+  width: 100%; //170
+  height: auto; //320
   margin-left: auto;
   margin-right: auto;
 }

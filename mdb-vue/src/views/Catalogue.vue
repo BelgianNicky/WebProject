@@ -50,7 +50,7 @@ export default {
 
 <style scoped>
 .Catalogue{
-	max-width: 1300px;
+	max-width: 60%;
 	margin: auto;
 }
 .title{
@@ -67,7 +67,7 @@ export default {
 	float:left
 }
 .catalogueItems{
-	width:30%;
+	width:50%;
 	float:left;
 	padding-top:100px;
 	margin-left:100px;
