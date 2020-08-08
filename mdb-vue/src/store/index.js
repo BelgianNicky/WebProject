@@ -9,7 +9,7 @@ import chaise from '@/assets/chaise.jpg';
 import multiprise from '@/assets/multiprise.jpg';
 export default new Vuex.Store({
   state: {
-    storeName: "MyBestComputer",
+    storeName: "Logistick",
     
     catalogueItems: [
       {

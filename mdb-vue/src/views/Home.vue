@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="banner">
-        <h1>Bienvenue chez </h1>
+        <h1>Bienvenue chez {{ storeName }}</h1>
         <ul>
           Nos heures d'ouvertures sont :
           <span class="space"></span>
@@ -21,8 +21,14 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
 export default {
-  name: "Home"
+  name: "Home",
+  computed:{
+    ...mapState({
+      storeName: "storeName"
+    })
+  }
 };
 </script>
 
