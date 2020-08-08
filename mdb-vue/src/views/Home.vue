@@ -28,6 +28,8 @@ export default {
     ...mapState({
       storeName: "storeName"
     })
+  },
+  components: {
   }
 };
 </script>

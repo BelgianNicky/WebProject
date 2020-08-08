@@ -34,12 +34,15 @@ export default {
 
 <style scoped>
 .card{
-  width: 100px;
-  height: 125px;
+  width: 100%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
 }
 .card-body{
   padding:0px;
+}
+.text{
+  font-size:10px;
 }
 </style>

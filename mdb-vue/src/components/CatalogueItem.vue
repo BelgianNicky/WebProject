@@ -36,14 +36,8 @@ p{
   font-size:1em;
 }
 .catalogue-item{
-  width: 100%; //170
-  height: auto; //320
-  margin-left: auto;
-  margin-right: auto;
-}
-li{
-  display: inline-block;
-  margin-left: 10px;
+	width: 100%;
+	height: auto;
 }
 .descriptionItem{
   margin:0px;

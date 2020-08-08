@@ -2,7 +2,7 @@
   <div role="tablist">
     <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle="'accordion-' + id" variant="info" class="bouton"> {{ categorie }}</b-button>
+        <b-button block v-b-toggle="'accordion-' + id" variant="info" size="md" class="bouton"> {{ categorie }}</b-button>
       </b-card-header>
       <b-collapse :id="'accordion-' + id" accordion="my-accordion" role="tabpanel">
         <b-card-body class="type">
@@ -47,12 +47,16 @@ import { mapState } from "vuex"
 </script>
 
 <style scoped>
+.mb-1{
+  width:100%;
+}
 .bouton{
-    width:400px;
-    height:50px;
+    width:100%;
+    height:30%;
 }
 .type{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
 }
 </style>
