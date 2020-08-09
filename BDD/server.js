@@ -15,6 +15,7 @@ function dbconnect (){
 function Insertuser(){
   var db=dbconnect();
 
+  //données à récup normalement
   var username= "nicky"
   var password= "azerty123"
   var email= "nick@yopmail.com"
@@ -26,5 +27,6 @@ function Insertuser(){
   const hash = crypto.createHmac('sha256',password)
                 .update('whateverrr')
                 .digest('hex');
-  db.query('INSERT INTO user SET username=?, password=?, email=?, full_name=?, id_habitation=?, id_panier=?')
+  db.query('INSERT INTO user SET username=?, password=?, email=?, full_name=?, id_habitation=?, id_panier=?',data,(err, user, field)=>{
+  }
 }
