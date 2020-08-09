@@ -49,6 +49,30 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Inscription.vue"),
   },
+  {
+    path: "/services",
+    name: "Home",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Home.vue"),
+  },
+  {
+    path: "/lieuhoraires",
+    name: "Home",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Home.vue"),
+  },
+  {
+    path: "/propos",
+    name: "Home",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Home.vue"),
+  },
+  {
+    path: "/contact",
+    name: "Home",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Home.vue"),
+  },
 ];
 
 const router = new VueRouter({

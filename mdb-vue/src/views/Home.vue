@@ -7,57 +7,30 @@
       </b-navbar-brand>
 
         <b-nav>
-          <b-nav-item class="textItem">Nos services</b-nav-item>
-          <b-nav-item class="textItem">Lieu et horaires</b-nav-item>
-          <b-nav-item class="textItem">À propos</b-nav-item>
-          <b-nav-item class="textItem">Contacts</b-nav-item>
+          <b-nav-item href="#services" class="textItem">Nos services</b-nav-item>
+          <b-nav-item href="#lieuhoraires" class="textItem">Lieu et horaires</b-nav-item>
+          <b-nav-item href="#propos" class="textItem">À propos</b-nav-item>
+          <b-nav-item href="#contact" class="textItem">Contact</b-nav-item>
         </b-nav>
     </b-navbar>
 
     <Carousel/>
 
-    <h2 class="titre-sections"> Nos services </h2>
+    <h2 id="services" class="titre-sections"> Nos services </h2>
     <NosServices/>
 
-    <h2 class="titre-sections"> Lieu et Horaires d'ouverture </h2>
+    <span id="lieuhoraires"/>
     <LieuHoraires/>
 
-    <!-- <div>
-      <b-jumbotron bg-variant="warning" text-variant="dark" border-variant="dark">
-        <template v-slot:header>Logistick</template>
+    <h2 id="propos" class="titre-sections"> À propos </h2>
+    <Apropos/>
 
-        <template v-slot:lead>
-          Votre magasin d'informatique près de chez vous, dans le Brabant-Wallon
-        </template>
+    <h2 id="contact" class="titre-sections"></h2>
+    <Contact/>
 
-        <hr class="my-4">
-
-        <p>
-          Découvrez notre gamme de services informatiques et les derniers accessoires multimédias conseillés par nos spécialistes
-        </p>
-        <b-button variant="primary" href="#">Catalogue</b-button>
-        <p>
-          Vous trouverez également sur notre site tous les éléments et conseils permettant de créer un ordinateur sur mesure qui correspond à vos besoins et votre budget.
-        </p>
-        <b-button variant="success" href="#">Mon PC sur mesure</b-button>
-      </b-jumbotron>
-    </div>
-    <div class="banner">
-      <b-img :src
-      <h1>Bienvenue chez {{ storeName }}</h1>
-      <ul>
-        Nos heures d'ouvertures sont :
-        <span class="space"></span>
-        <li>Lundi : 9h-12h | 13h30-17h</li>
-        <li>Mardi : 9h-12h | 13h30-17h</li>
-        <li>Mercredi : 9h-12h | 13h30-15h</li>
-        <li>Jeudi : 9h-12h | 13h30-17h</li>
-        <li>Vendredi : 9h-12h | 13h30-15h</li>
-        <li>Samedi : 9h-13h</li>
-      </ul>
-    </div>
-    <div class="container">  
-    </div>-->
+    <h2 class="titre-sections"></h2>
+    <!-- FOOTER A REMPLIR -->
+    
   </div>
 </template>
 
@@ -65,6 +38,8 @@
 import Carousel from "@/components/layout/Carousel"
 import NosServices from "@/components/layout/NosServices"
 import LieuHoraires from "@/components/layout/LieuHoraires"
+import Apropos from "@/components/layout/Apropos"
+import Contact from "@/components/layout/Contact"
 import { mapState } from "vuex"
 export default {
   name: "Home",
@@ -76,7 +51,9 @@ export default {
   components: {
     Carousel,
     NosServices,
-    LieuHoraires
+    LieuHoraires,
+    Apropos,
+    Contact
   },
   data(){
     return {
@@ -113,7 +90,7 @@ background-color:#FFF;
 }
 
 .titre-sections {
-margin-top:150px;
+margin-top:100px;
 background: url(http://ecard.enter-media.org/upload/iblock/cf4/cf401a38b3c0190e91e68729a24795b6.jpg) repeat;
 -webkit-text-fill-color: transparent;
 -webkit-background-clip: text;
