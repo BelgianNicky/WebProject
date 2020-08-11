@@ -33,6 +33,7 @@
           <button class="btn btn-unique" type="submit">S'inscrire !</button>
         </div>
       </form>
+
     </mdb-container>
   </div>
 </template>
@@ -42,8 +43,6 @@ export default {
   data: function(){ return {
     errors: [],
     name: null,
-    age: null,
-    movie: null
     };
   },
   methods: {
@@ -85,5 +84,9 @@ ul {
 
 li {
   color: red;
+}
+
+.btn{
+  color: white;
 }
 </style>
