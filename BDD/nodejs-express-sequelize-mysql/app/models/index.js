@@ -15,12 +15,22 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   }
 });
 
-/*const db = {};
+const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.users = require("./users.model.js")(sequelize, Sequelize);
+db.habitation = require("./users.model.js")(sequelize, Sequelize);
+db.panier = require("./users.model.js")(sequelize, Sequelize);
+
+//one to many entre users et habitation
+Habitation.hasMany(Users, { as: "users" });
+Users.belongsTo(Habitation, {
+  foreignKey: "id_habitation",
+  as: "id_habitation",
+});
+
 
 module.exports = db;
 
