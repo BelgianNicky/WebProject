@@ -22,7 +22,29 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INT
     }
   });
-  const habitation = 
+  const Habitation = sequelize.define("habitation",{
+    ville: {
+      type: Sequelize.VARCHAR
+    },
+    code_postal: {
+      type: Sequelize.VARCHAR
+    }
+  }
+  );
+  const Panier = sequelize.define("panier",{
+    quantite: {
+      type: Sequelize.INT
+    },
+    montant_tot: {
+      type: Sequelize.INT
+    }
+  }
+  );
 
+Habitation.hasMany(Users, { as: "users" });
+Users.belongsTo(Habitation, {
+  foreignKey: "id_habitation",
+  as: "id_habitation",
+});
   return Tutorial;
 };
