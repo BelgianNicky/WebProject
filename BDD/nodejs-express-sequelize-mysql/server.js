@@ -20,6 +20,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
+// simple test de route
+app.get("/test", (req, res) => {
+  res.json({ message: "bienvenu au test" });
+});
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
