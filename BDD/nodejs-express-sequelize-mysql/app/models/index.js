@@ -23,14 +23,42 @@ db.sequelize = sequelize;
 db.users = require("./users.model.js")(sequelize, Sequelize);
 db.habitation = require("./habitation.model.js")(sequelize, Sequelize);
 db.panier = require("./panier.model.js")(sequelize, Sequelize);
+db.produit = require("./produit.model.js")(sequelize, Sequelize);
+db.type = require("./type.model.js")(sequelize, Sequelize);
+db.categorie = require("./categorie.model.js")(sequelize, Sequelize);
+db.object = require("./object.model.js")(sequelize, Sequelize);
+db.commande = require("./commande.model.js")(sequelize, Sequelize);
 
 //one to many entre users et habitation
 db.habitation.hasMany(db.users, { as: "users" });
-db.users.belongsTo(db.habitation, {
-});
+db.users.belongsTo(db.habitation, {});
 
 //one to one entre users et panier
 db.panier.hasOne(db.users,{ as: "users",foreignKey:'panierId' });
 db.users.belongsTo(db.panier, {foreignKey:'panierId'});
+
+//many to many entre panier et produit
+db.panier.belongsToMany(db.produit, { through: 'pani_prod' });
+db.produit.belongsToMany(db.panier, { through: 'pani_prod' });
+
+//one to many entre produit et Type
+db.type.hasMany(db.produit, { as: "produit" });
+db.produit.belongsTo(db.type, {});
+
+//one to many entre type et Categorie
+db.categorie.hasMany(db.type, { as: "type" });
+db.type.belongsTo(db.categorie, {});
+
+//one to many entre object et Produit
+db.produit.hasMany(db.object, { as: "object" });
+db.object.belongsTo(db.produit, {});
+
+//many to many entre objecct et Commande
+db.object.belongsToMany(db.commande, { through: 'com_obj' });
+db.commande.belongsToMany(db.object, { through: 'com_obj' });
+
+//one to many entre commande et panier
+db.panier.hasMany(db.commande, { as: "commande" });
+db.commande.belongsTo(db.panier, {});
 
 module.exports = db;
