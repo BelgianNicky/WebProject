@@ -1,7 +1,7 @@
 module.exports = {
   HOST: "51.210.149.38",
   PORT: '3306',
-  USER: "maximilien",
+  USER: "max",
   PASSWORD: "lambert",
   DB: "mybase",
   dialect: "mysql",

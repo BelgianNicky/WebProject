@@ -15,17 +15,12 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   }
 });
 
-/*const db = {};
-
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-
-db.users = require("./users.model.js")(sequelize, Sequelize);
-
-module.exports = db;
-
-/*In development, you may need to drop existing tables and
-re-sync database. Just use force: true as following code:
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
-});*/
+//test la connection à la db
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection to the database has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
