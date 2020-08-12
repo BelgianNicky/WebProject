@@ -1,23 +1,19 @@
 module.exports = (sequelize, Sequelize) => {
-  const habitation = require()
   const Users = sequelize.define("users", {
     username: {
-      type: Sequelize.VARCHAR
-    },
-    password: {
-      type: Sequelize.VARCHAR
-    },
-    email: {
-      type: Sequelize.VARCHAR
-    },
-    fullname: {
       type: Sequelize.STRING
     },
-    created_at: {
-      type: Sequelize.TIMESTAMP
+    password: {
+      type: Sequelize.STRING
+    },
+    email: {
+      type: Sequelize.STRING
+    },
+    full_name: {
+      type: Sequelize.STRING
     },
     adresse: {
-      type: Sequelize.VARCHAR
+      type: Sequelize.STRING
     },
   });
   return Users;

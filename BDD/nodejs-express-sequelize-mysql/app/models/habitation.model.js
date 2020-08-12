@@ -1,10 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
   const Habitation = sequelize.define("habitation",{
     ville: {
-      type: Sequelize.VARCHAR
+      type: Sequelize.STRING
     },
     code_postal: {
-      type: Sequelize.VARCHAR
+      type: Sequelize.STRING
     }
   });
+  return Habitation;
 };

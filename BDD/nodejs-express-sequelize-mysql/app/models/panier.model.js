@@ -1,10 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
   const Panier = sequelize.define("panier",{
     quantite: {
-      type: Sequelize.INT
+      type: Sequelize.STRING
     },
     montant_tot: {
-      type: Sequelize.INT
+      type: Sequelize.STRING
     }
   });
+  return Panier;
 };

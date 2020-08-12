@@ -8,7 +8,7 @@ exports.createUsers = (id_habitation,id_panier,users) => {
     username: users.username,
     password: users.password,
     email: users.email,
-    fullname: users.fullname,
+    full_name: users.full_name,
     created_at: users.created_at,
     id_habitation: id_habitation,
     id_panier: id_panier,

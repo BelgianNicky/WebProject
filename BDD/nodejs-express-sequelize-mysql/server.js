@@ -30,7 +30,7 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });*/
-const db = require("./app/models");
+const db = require("./app/models/index");
 const controller = require("./app/controllers/users.controller");
 
 const run = async () => {
@@ -39,7 +39,6 @@ const run = async () => {
     password: "yololasticot",
     email: "mat@yopmail.com",
     full_name: "mathias gassmann",
-    created_at: null,
     adresse:"rue de la chaise 4 "
   });
 };

@@ -25,23 +25,12 @@ db.habitation = require("./habitation.model.js")(sequelize, Sequelize);
 db.panier = require("./panier.model.js")(sequelize, Sequelize);
 
 //one to many entre users et habitation
-Habitation.hasMany(Users, { as: "users" });
-Users.belongsTo(Habitation, {
-  foreignKey: "id_habitation",
-  as: "id_habitation",
+db.habitation.hasMany(db.users, { as: "users" });
+db.users.belongsTo(db.habitation, {
 });
 
 //one to one entre users et panier
-Panier.hasOne(Users,{ as: "users" });
-Users.belongsTo(Panier, {
-  foreignKey: "id_panier",
-  as: "id_panier",
-});
+db.panier.hasOne(db.users,{ as: "users",foreignKey:'panierId' });
+db.users.belongsTo(db.panier, {foreignKey:'panierId'});
 
 module.exports = db;
-
-/*In development, you may need to drop existing tables and
-re-sync database. Just use force: true as following code:
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
-});*/
