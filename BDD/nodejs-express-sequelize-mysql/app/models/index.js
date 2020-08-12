@@ -21,8 +21,8 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.users = require("./users.model.js")(sequelize, Sequelize);
-db.habitation = require("./users.model.js")(sequelize, Sequelize);
-db.panier = require("./users.model.js")(sequelize, Sequelize);
+db.habitation = require("./habitation.model.js")(sequelize, Sequelize);
+db.panier = require("./panier.model.js")(sequelize, Sequelize);
 
 //one to many entre users et habitation
 Habitation.hasMany(Users, { as: "users" });
@@ -31,6 +31,12 @@ Users.belongsTo(Habitation, {
   as: "id_habitation",
 });
 
+//one to one entre users et panier
+Panier.hasOne(Users,{ as: "users" });
+Users.belongsTo(Panier, {
+  foreignKey: "id_panier",
+  as: "id_panier",
+});
 
 module.exports = db;
 

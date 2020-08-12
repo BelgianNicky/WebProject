@@ -16,6 +16,9 @@ module.exports = (sequelize, Sequelize) => {
     created_at: {
       type: Sequelize.TIMESTAMP
     },
+    adresse: {
+      type: Sequelize.VARCHAR
+    },
   });
   return Users;
 };
