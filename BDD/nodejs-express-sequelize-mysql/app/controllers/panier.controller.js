@@ -29,7 +29,7 @@ exports.findOnePanier = (req,res) => {
     });
 };
 
-//cree un panier vide
+//cree un panier vide et le renvoie
 exports.createPanier = (req, res) => {
   const panier = {
     quantite: 0,
