@@ -31,10 +31,12 @@ app.listen(PORT, () => {
 
 
 /*const db = require("./app/models/index");
-const controller = require("./app/controllers/users.controller");
+const controller = require("./app/controllers/panier.controller");
 
 const run = async () => {
-  const users1 = await controller.createUsers(1,1, {
+  const panier1 = await controller.createPanier()
+  
+  /*const users1 = await controller.createUsers(1,1, {
     username: "mathiaslaclasse",
     password: "yololasticot",
     email: "mat@yopmail.com",

@@ -2,11 +2,14 @@
   <b-card :img-src="image.source" :img-alt="image.alt" :title="nom" class="catalogue-item"  img-top>
     <b-card-text class="descriptionItem"> {{ description }} </b-card-text>
     <b-card-text class="prixItem">{{ prix }} €</b-card-text>
-    <b-button href="#" size="sm" variant="primary">Ajouter au panier</b-button>
+    <b-button href="#" @click="addPanier" size="sm" variant="primary">Ajouter au panier</b-button>
   </b-card>
 </template>
 
 <script>
+
+  import PanierDataService from "../services/PanierDataService";
+
 	export default {
 		name: 'CatalogueItem',
 		components: {
@@ -27,6 +30,30 @@
         description: {
             type: String,
         }
+    },
+    data(){
+      return{
+        panier: {
+          id: null,
+          quantite: null,
+          montant_tot: null
+        },
+      };	
+    },
+    methods: {
+      addPanier(){
+        PanierDataService.create()
+          .then(response => {
+            console.log(response.data);
+            this.panier.id = response.data.id;
+            this.panier.quantite = response.data.quantite;
+            this.panier.montant_tot = response.data.montant_tot;
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
     }
 	}
 </script>

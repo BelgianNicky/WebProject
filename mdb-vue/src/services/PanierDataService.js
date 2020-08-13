@@ -9,11 +9,11 @@ class PanierDataService {
     return http.get(`/panier/${id}`);
   }
 
-  /*create(data) {
-    return http.post("/tutorials", data);
+  create() {
+    return http.post("/panier");
   }
 
-  update(id, data) {
+  /*update(id, data) {
     return http.put(`/tutorials/${id}`, data);
   }
 
