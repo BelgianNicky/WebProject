@@ -1,11 +1,17 @@
 const db = require("../models");
 const Panier= db.panier;
 
-export.findAllPanier = (req,res){
+exports.findAllPanier = (req,res) => {
   Panier.findAll()
-    .then(panier =>{
-      console.log(panier);
+    .then(data =>{
+      console.log(data);
+      res.send(data);
       res.sendStatus(200);
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving panier."
+      });
+    });
 }

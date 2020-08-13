@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
+module.exports = app => {    
+    var express = require('express');
+    var router = express.Router();
 
-var PanierController = require('../controllers/panier.controller')
+    var PanierController = require('../controllers/panier.controller')
 
-router.get('/', PanierController.findAllPanier)
+    router.get('/', PanierController.findAllPanier)
 
-app.use('/api/panier',router);
-
-module.exports = router;
+    app.use('/api/panier',router);
+};
