@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.DOUBLE
     },
     stock: {
-      type: Sequelize.INT
+      type: Sequelize.INTEGER
     },
     nom: {
       type: Sequelize.STRING

@@ -1,8 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
-  const Object = sequelize.define("object",{
+  const Objet = sequelize.define("objet",{
     etat: {
       type: Sequelize.STRING
     },
   });
-  return Object;
+  return Objet;
 };
