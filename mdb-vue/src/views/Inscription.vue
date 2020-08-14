@@ -1,7 +1,7 @@
 <template>
   <div class="w-50 mx-auto">
     <b-container fluid>
-      <form id="register" @submit="checkForm" action="debug" novalidate="true">
+      <form id="register" @submit="checkForm" action="" novalidate="true">
         <!-- method="post" --->
         <br />
 
@@ -19,7 +19,7 @@
         <input type="email" id="email" class="form-control" v-model="email" name="email" />
         <br />
         <label for="pwd" class="grey-text">Votre mot de passe</label>
-        <input type="password" id="pwd" class="form-control" v-model="pwd" name="pwd" />
+        <input type="password" id="pwd" class="form-control" v-model="password" name="pwd" />
         <br />
         <label for="confirmPwd" class="grey-text">Confirmez votre mot de passe</label>
         <input
@@ -39,15 +39,29 @@
 </template>
 
 <script>
+// import UsersDataService from "../services/UsersDataService";
+
+
 export default {
   data: function(){ return {
     errors: [],
     name: null,
+    email: null,
+    password: null,
+    confirmPwd: null,
     };
   },
   methods: {
     checkForm (e) {
       if (this.name && this.email && this.pwd === this.confirmPwd) {
+        /*
+        if(UsersDataService.create(users:{name:this.name, email:this.email, password:this.password})) {
+          return true;
+        }
+        else{
+          this.errors.push("Problème lors de la création du compte. Email déjà existant");
+        }
+        */
         return true;
       }
 
@@ -65,6 +79,7 @@ export default {
       if (this.pwd !== this.confirmPwd) {
         this.errors.push("Mots de passes différents");
       }
+      
       e.preventDefault();
     },
         validEmail: function (email) {

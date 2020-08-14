@@ -54,7 +54,6 @@ export default {
           this.panier.id = response.data.id;
           this.panier.quantite = response.data.quantite;
           this.panier.montant_tot = response.data.montant_tot;
-          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);

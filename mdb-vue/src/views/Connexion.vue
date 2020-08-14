@@ -1,7 +1,7 @@
 <template>
   <div class="w-50 mx-auto">
     <b-container fluid>
-      <form id="register" @submit="checkForm" action="debug" novalidate="true">
+      <form id="register" @submit="checkForm" action="" novalidate="true">
         <!-- method="post" --->
         <br />
 
@@ -16,7 +16,7 @@
         <input type="email" id="email" class="form-control" v-model="email" name="email" />
         <br />
         <label for="pwd" class="grey-text">Mot de passe</label>
-        <input type="password" id="pwd" class="form-control" v-model="pwd" name="pwd" />
+        <input type="password" id="pwd" class="form-control" v-model="password" name="pwd" />
         <br />
         <div class="text-center mt-4">
           <button class="btn btn-unique" type="submit">Se connecter</button>
@@ -30,11 +30,21 @@
 export default {
   data: function(){ return {
     errors: [],
-    name: null,
+    email: null,
+    password: null,
     };
   },
   methods: {
-    checkForm () {
+    checkForm (e) {
+        /*
+        if(UsersDataService.connnect(users:{email:this.email, password:this.password})) {
+          return true;
+        }
+        else{
+          this.errors.push("Email ou password mauvais.");
+        }
+        */
+      return e;
     }
 
   }
