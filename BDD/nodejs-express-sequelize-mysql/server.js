@@ -22,6 +22,10 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/panier.routes")(app);
+require("./app/routes/habitation.routes")(app);
+require("./app/routes/users.routes")(app);
+require("./app/routes/categorie.routes")(app);
+require("./app/routes/type.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

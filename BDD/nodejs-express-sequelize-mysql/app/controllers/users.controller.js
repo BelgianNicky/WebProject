@@ -1,17 +1,50 @@
 const db = require("../models");
+const { panier } = require("../models");
 const Users = db.users;
-
+const Panier = db.panier;
+const Habitation = db.habitation;
 exports.createUsers = (req, res) => {
-  const users = {
-    username: req.username,
-    password: req.password,
-    email: req.email,
-    full_name: req.full_name,
-    adresse: req.adresse,
-    id_habitation: req.id_habitation,
-    id_panier: req.id_panier
+
+
+ /* const panier = {
+    quantite: 0,
+    montant_tot: 0,
   };
-  Users.create(users)
+
+  Panier.create(panier)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating panier"
+      });
+    });*/
+
+  Habitation.findOne({ where: { ville : req.body.ville } })
+    .then(data => {
+        res.send(data);
+    })
+    .catch(err => {
+      console.log(req.body.ville);
+      const habitation = {
+        ville: req.body.ville,
+        code_postal: req.body.code_postal,
+      };
+      Habitation.create(habitation)
+      .then(data => {
+        res.send(data)
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while creating habitation"
+        });
+      });
+    });
+  //if(req.body.ville == Habitation.findOne({ where: { name : req.body.ville } }).ville)
+  /*Users.create(users)
     .then(data => {
       res.send(data);
     })
@@ -20,7 +53,7 @@ exports.createUsers = (req, res) => {
         message:
           err.message || "Some error occurred while creating the Users."
       });
-    });
+    });*/
  };
 
  //retourne un user en fonction de son id

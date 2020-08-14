@@ -21,8 +21,8 @@ exports.findOneHabitation = (req, res) => {
 //cree une habitation
 exports.createHabitation = (req, res) => {
   const habitation = {
-    ville: req.ville,
-    code_postal: req.code_postal
+    ville: req.body.ville,
+    code_postal: req.body.code_postal
   };
 
   Habitation.create(habitation)
