@@ -7,7 +7,7 @@
         <Categorie v-for="item in categorie" :categorie="item.nom" :id="item.id" :key="item.nom" />
       </section>
 
-      <section class="catalogueItems">
+      <section class="catalogueItems .container-fluid">
         <span class="sous-section">
           <CatalogueItem
             v-for="item in catalogueItems"
@@ -56,27 +56,47 @@ export default {
   margin: 30px;
   font-family: Verdana, Tahoma, sans-serif;
 }
-.categories {
-  padding-top: 50px;
-  width: 40%;
-  min-width: 30%;
-  float: left;
-  padding-left: 15%;
-  padding-right: 5%;
-  /*display: flex;
-	flex-direction: column;
-	justify-content: start;
-	align-items: flex-start;*/
-}
+
 .catalogueItems {
   padding-top: 50px;
   width: 60%;
   float: right;
 }
-.sous-section {
-  width: 70%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px 10px;
+
+@media (min-width: 1600px) {
+  .sous-section {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 10px;
+  }
+  .categories {
+    padding-top: 50px;
+    width: 40%;
+    float: left;
+    padding-left: 5%;
+    padding-right: 5%;
+    /*display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: flex-start;*/
+  }
+}
+
+@media (max-width: 1599px) {
+  .sous-section {
+    width: 90%;
+  }
+  .categories {
+    padding-top: 50px;
+    width: 40%;
+    float: left;
+    padding-left: 5%;
+    padding-right: 5%;
+    /*display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: flex-start;*/
+  }
 }
 </style>

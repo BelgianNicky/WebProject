@@ -56,9 +56,18 @@ export default {
   width: 100%;
   height: 30%;
 }
-.type {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
+
+@media (max-width: 1599x) {
+  .type {
+    background-color: #f00;
+  }
+}
+
+@media (min-width: 1600px) {
+  .type {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
 }
 </style>

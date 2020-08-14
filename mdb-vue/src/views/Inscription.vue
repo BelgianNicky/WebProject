@@ -12,11 +12,24 @@
                   <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
               </ul>
           </p>
-        <label for="name" class="grey-text">Votre nom</label>
+        <label for="name" class="grey-text">Votre nom d'utilisateur</label>
+        <input type="text" id="name" class="form-control" v-model="username" name="username" />
+        <br />
+        <label for="name" class="grey-text">Votre nom et prénom</label>
         <input type="text" id="name" class="form-control" v-model="name" name="name" />
+        <br />
+        <label for="email" class="grey-text">Votre adresse de livraison</label>
+        <input type="email" id="email" class="form-control" v-model="adresse" name="adresse" />
+        <br />
+        <label for="email" class="grey-text">Votre ville</label>
+        <input type="email" id="email" class="form-control" v-model="ville" name="ville" />
+        <br>
+        <label for="email" class="grey-text">code postal</label>
+        <input type="email" id="email" class="form-control" v-model="postal" name="postal" />
         <br />
         <label for="email" class="grey-text">Votre email</label>
         <input type="email" id="email" class="form-control" v-model="email" name="email" />
+        <br />
         <br />
         <label for="pwd" class="grey-text">Votre mot de passe</label>
         <input type="password" id="pwd" class="form-control" v-model="password" name="pwd" />
@@ -45,7 +58,11 @@
 export default {
   data: function(){ return {
     errors: [],
+    username: null,
     name: null,
+    adresse: null,
+    ville: null,
+    postal: null,
     email: null,
     password: null,
     confirmPwd: null,
@@ -55,7 +72,7 @@ export default {
     checkForm (e) {
       if (this.name && this.email && this.pwd === this.confirmPwd) {
         /*
-        if(UsersDataService.create(users:{name:this.name, email:this.email, password:this.password})) {
+        if(UsersDataService.create(users:{username:this.username,name:this.name, adresse:this.adresse, ville:this.ville, postal:this.postal, email:this.email, password:this.password})) {
           return true;
         }
         else{
@@ -67,8 +84,20 @@ export default {
 
       this.errors = [];
 
+      if (!this.username) {
+        this.errors.push("Nom d'utilisateur obligatoire");
+      }
       if (!this.name) {
-        this.errors.push("Nom obligatoire");
+        this.errors.push("Nom complet obligatoire");
+      }
+      if (!this.adresse) {
+        this.errors.push("Adresse obligatoire");
+      }
+      if (!this.ville) {
+        this.errors.push("Ville obligatoire");
+      }
+      if (!this.postal) {
+        this.errors.push("Code postal obligatoire");
       }
       if (!this.email) {
         this.errors.push('Email obligatoire');

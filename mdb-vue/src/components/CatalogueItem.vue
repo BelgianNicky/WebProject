@@ -70,6 +70,7 @@ p {
 .catalogue-item {
   width: 100%;
   height: auto;
+  margin-bottom: 20px;
 }
 .descriptionItem {
   margin: 0px;
