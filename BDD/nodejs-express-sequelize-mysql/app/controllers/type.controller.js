@@ -33,10 +33,9 @@ exports.findOneType = (req, res) => {
 //cree un type
 exports.createType = (req, res) => {
   const type = {
-    name: req.name
-    //categorie_id  ?
+    name: req.name,
+    categorieId: req.categorieId
   };
-
   Type.create(type)
     .then(data => {
       res.send(data);

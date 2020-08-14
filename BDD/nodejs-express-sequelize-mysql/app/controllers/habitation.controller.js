@@ -11,7 +11,7 @@ exports.findOneHabitation = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving habitation with id=" + id
+        message: "Error retrieving habitation with name=" + name
       });
     });
 };

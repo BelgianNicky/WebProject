@@ -1,11 +1,11 @@
 const db = require("../models");
 const OBjet= db.objet;
 
-//cree une commande
+//cree un objet
 exports.createObjet = (req, res) => {
   const objet = {
     etat: req.etat,
-    //produit id ?
+    produitId: res.produitId
   };
 
   Objet.create(objet)

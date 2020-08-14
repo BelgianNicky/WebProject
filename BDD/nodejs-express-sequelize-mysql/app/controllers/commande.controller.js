@@ -6,7 +6,7 @@ exports.createCommande = (req, res) => {
   const commande = {
     mode_payement: req.mode_payement,
     prix_tot: req.prix_tot, // peut etre delete
-    //panier id ?
+    panierId: req.panierId
   };
 
   Commande.create(commande)
