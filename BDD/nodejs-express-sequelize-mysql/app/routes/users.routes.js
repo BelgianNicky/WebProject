@@ -2,9 +2,10 @@ module.exports = app => {
     var express = require('express');
     var router = express.Router();
 
-    var UsersController = require('../controllers/users.controller')
+    var UsersController = require('../controllers/users.controller');
 
-    router.post('/', UsersController.createUsers)
+    router.post('/', UsersController.createUsers);
+    router.get('/', UsersController.findOneUsers);
 
     app.use('/api/users',router);
 };
