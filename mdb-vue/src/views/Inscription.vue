@@ -1,6 +1,6 @@
 <template>
   <div class="w-50 mx-auto">
-    <mdb-container>
+    <b-container fluid>
       <form id="register" @submit="checkForm" action="debug" novalidate="true">
         <!-- method="post" --->
         <br />
@@ -34,7 +34,7 @@
         </div>
       </form>
 
-    </mdb-container>
+    </b-container>
   </div>
 </template>
 
