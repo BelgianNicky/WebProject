@@ -29,3 +29,21 @@ exports.findOneCategorie = (req, res) => {
       });
     });
 };
+
+//cree une categorie
+exports.createCategorie = (req, res) => {
+  const categorie = {
+    name: req.name
+  };
+
+  Categorie.create(categorie)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the categorie"
+      });
+    });
+};

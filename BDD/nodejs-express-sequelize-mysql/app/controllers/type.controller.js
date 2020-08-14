@@ -29,3 +29,22 @@ exports.findOneType = (req, res) => {
       });
     });
 };
+
+//cree un type
+exports.createType = (req, res) => {
+  const type = {
+    name: req.name
+    //categorie_id  ?
+  };
+
+  Type.create(type)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the categorie"
+      });
+    });
+};
