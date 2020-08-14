@@ -1,17 +1,20 @@
 const db = require("../models");
 const Habitation= db.habitation;
+const Op = db.Sequelize.Op;
 
 //retourne l'habitation dont la ville est passé en param
 exports.findOneHabitation = (req, res) => {
-  const id = req.params.name;
+  const ville = req.query.ville;
+  var condition = ville ? { ville: { [Op.like]: `%${ville}%` } } : null;
 
-  Habitation.findByPk(name)
+  Habitation.findAll({ where: condition })
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving habitation with name=" + name
+        message:
+          err.message || "Some error occurred while retrieving habitation."
       });
     });
 };
