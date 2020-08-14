@@ -7,7 +7,7 @@
         <Categorie v-for="item in categorie" :categorie="item.nom" :id="item.id" :key="item.nom" />
       </section>
 
-      <section class="catalogueItems .container-fluid">
+      <section class="catalogueItems">
         <span class="sous-section">
           <CatalogueItem
             v-for="item in catalogueItems"
@@ -63,12 +63,9 @@ export default {
   float: right;
 }
 
-@media (min-width: 1600px) {
+@media (max-width: 1599px) {
   .sous-section {
-    width: 70%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px 10px;
+    width: 90%;
   }
   .categories {
     padding-top: 50px;
@@ -83,9 +80,12 @@ export default {
   }
 }
 
-@media (max-width: 1599px) {
+@media (min-width: 1600px) {
   .sous-section {
-    width: 90%;
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 10px;
   }
   .categories {
     padding-top: 50px;

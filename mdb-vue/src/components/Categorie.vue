@@ -57,9 +57,9 @@ export default {
   height: 30%;
 }
 
-@media (max-width: 1599x) {
+@media (max-width: 1599px) {
   .type {
-    background-color: #f00;
+    padding: 0%;
   }
 }
 
