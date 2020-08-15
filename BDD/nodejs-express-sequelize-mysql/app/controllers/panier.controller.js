@@ -36,16 +36,7 @@ exports.createPanier = (req, res) => {
     montant_tot: 0,
   };
 
-  Panier.create(panier)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the panier"
-      });
-    });
+  return Promise.resolve(Panier.create(panier))
 };
 //modifie un panier précis avec TOUTES les infos passé en param
 exports.updatePanier = (req, res) => {
