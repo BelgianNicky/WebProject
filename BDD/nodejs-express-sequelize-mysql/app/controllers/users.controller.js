@@ -7,7 +7,7 @@ const Habitation = db.habitation;
 
 exports.createUsers = (req, res) => {
   // panier
-  
+
   Habitation.count({ where: { ville : req.body.ville } })
   .then(count => {
     if(count > 0) {
@@ -106,6 +106,31 @@ exports.createUsers = (req, res) => {
      .catch(err => {
        res.status(500).send({
          message: "Error retrieving user with id=" + id
+       });
+     });
+ };
+
+ //supprime un user en fonction de son id
+ exports.delete = (req, res) => {
+   const id = req.params.id;
+
+   User.destroy({
+     where: { id: id }
+   })
+     .then(num => {
+       if (num == 1) {
+         res.send({
+           message: "user was deleted successfully!"
+         });
+       } else {
+         res.send({
+           message: `Cannot delete user with id=${id}. Maybe Tutorial was not found!`
+         });
+       }
+     })
+     .catch(err => {
+       res.status(500).send({
+         message: "Could not delete user with id=" + id
        });
      });
  };
