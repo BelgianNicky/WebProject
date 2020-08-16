@@ -1,5 +1,6 @@
 const db = require("../models");
 const Commande= db.commande;
+const Op = db.Sequelize.Op;
 
 //cree une commande
 exports.createCommande = (req, res) => {
