@@ -26,6 +26,8 @@ require("./app/routes/habitation.routes")(app);
 require("./app/routes/users.routes")(app);
 require("./app/routes/categorie.routes")(app);
 require("./app/routes/type.routes")(app);
+require("./app/routes/commande.routes")(app);
+require("./app/routes/produit.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
@@ -39,7 +41,7 @@ const controller = require("./app/controllers/panier.controller");
 
 const run = async () => {
   const panier1 = await controller.createPanier()
-  
+
   /*const users1 = await controller.createUsers(1,1, {
     username: "mathiaslaclasse",
     password: "yololasticot",

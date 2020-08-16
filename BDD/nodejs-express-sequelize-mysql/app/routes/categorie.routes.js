@@ -4,8 +4,11 @@ module.exports = app => {
 
     var CategorieController = require('../controllers/categorie.controller');
 
+    router.get('/:id', CategorieController.findOneCategorie);
+    router.post('/', CategorieController.createCategorie);
+    router.put('/:id', CategorieController.updateCategorie);
+    router.delete('/:id', CategorieController.deleteCategorie);
     router.get('/', CategorieController.findAllCategorie);
-    router.get('/', CategorieController.findOneCategorie);
 
     app.use('/api/categorie',router);
 };
