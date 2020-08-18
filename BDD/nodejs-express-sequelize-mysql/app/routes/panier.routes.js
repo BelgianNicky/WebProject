@@ -5,7 +5,7 @@ module.exports = app => {
     var PanierController = require('../controllers/panier.controller')
 
     router.get('/', PanierController.findAllPanier)
-    router.post('/', PanierController.createPanier)
+    router.get('/:id', PanierController.findOnePanier)
 
     app.use('/api/panier',router);
 };

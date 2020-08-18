@@ -13,14 +13,18 @@ exports.createUsers = (req, res) => {
   Users.findAll({where: { username : req.body.username }})
     .then(usernameData =>{
       if(usernameData != null  && usernameData.length > 0){
-        res.send('username already exists')
+        res.send({
+          usernameError : "username already exists"
+        })
       }
       else{
         // Check si l'email existe déjà dans la base de données
         Users.findAll({where: {email : req.body.email }})
         .then(emailData =>{
           if(emailData != null  && emailData.length > 0){
-            res.send('email already exists')
+            res.send({
+              emailError : "email already exists"
+            })
           }
           else{
             // Check si la ville existe déjà dans la base de données

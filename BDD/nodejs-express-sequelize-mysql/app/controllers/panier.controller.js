@@ -17,8 +17,9 @@ exports.findAllPanier = (req,res) => {
 
 //retourne le panier dont l'id est passé en param
 exports.findOnePanier = (req,res) => {
-  const id=req.params.id;
-  Panier.findOne(id)
+  const id = req.params.id;
+
+  Panier.findByPk(id)
     .then(data =>{
       res.send(data);
     })

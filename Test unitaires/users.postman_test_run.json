@@ -1,0 +1,104 @@
+{
+	"id": "ecb7d742-f0a1-4a59-8817-c49988b94dfb",
+	"name": "users",
+	"timestamp": "2020-08-18T17:45:25.869Z",
+	"collection_id": "ae19e59b-d4d5-4a2e-8885-b47ab950610e",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 4,
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "185feed9-51ff-41fa-b1b5-dff8be604474",
+			"name": "/users GET",
+			"url": "http://localhost:8080/api/users/15",
+			"time": 94,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"L'utilisateur avec l'id 15 est bien récupéré": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"L'utilisateur avec l'id 15 est bien récupéré": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				94
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"L'utilisateur avec l'id 15 est bien récupéré": true
+				}
+			]
+		},
+		{
+			"id": "f9eed3a5-3f34-4402-9742-2e404b8d5db4",
+			"name": "/users/ POST",
+			"url": "http://localhost:8080/api/users",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"L'utilisateur Virginie est créé et sauvegardé correctement": false,
+				"L'utilisateur n'est pas créé car le username existe déjà": true,
+				"L'utilisateur n'est pas créé car l'email existe déjà": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"L'utilisateur Virginie est créé et sauvegardé correctement": {
+					"pass": 0,
+					"fail": 1
+				},
+				"L'utilisateur n'est pas créé car le username existe déjà": {
+					"pass": 1,
+					"fail": 0
+				},
+				"L'utilisateur n'est pas créé car l'email existe déjà": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"L'utilisateur Virginie est créé et sauvegardé correctement": false,
+					"L'utilisateur n'est pas créé car le username existe déjà": true,
+					"L'utilisateur n'est pas créé car l'email existe déjà": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 120,
+	"collection": {
+		"requests": [
+			{
+				"id": "185feed9-51ff-41fa-b1b5-dff8be604474",
+				"method": "GET"
+			},
+			{
+				"id": "f9eed3a5-3f34-4402-9742-2e404b8d5db4",
+				"method": "POST"
+			}
+		]
+	}
+}

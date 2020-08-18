@@ -5,7 +5,7 @@ module.exports = app => {
     var UsersController = require('../controllers/users.controller');
 
     router.post('/', UsersController.createUsers);
-    router.get('/', UsersController.findOneUsers);
+    router.get('/:id', UsersController.findOneUsers);
 
     app.use('/api/users',router);
 };

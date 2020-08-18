@@ -1,0 +1,55 @@
+{
+	"id": "e8ccd18d-ae13-46d2-aa38-c508ce532b69",
+	"name": "panier",
+	"timestamp": "2020-08-18T17:49:11.977Z",
+	"collection_id": "c2dc3247-1d7b-40fa-8e03-4f9688b23ea8",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 2,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "a0d6cad8-fd66-4d0d-85fa-81f11529a070",
+			"name": "/panier/:id GET",
+			"url": "http://localhost:8080/api/panier/83",
+			"time": 85,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Le panier avec l'id 83 est bien récupéré": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Le panier avec l'id 83 est bien récupéré": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				85
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Le panier avec l'id 83 est bien récupéré": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 85,
+	"collection": {
+		"requests": [
+			{
+				"id": "a0d6cad8-fd66-4d0d-85fa-81f11529a070",
+				"method": "GET"
+			}
+		]
+	}
+}
