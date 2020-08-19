@@ -139,6 +139,36 @@ exports.createUsers = (req, res) => {
      });
  };
 
+  //retourne un user en fonction de son id
+ exports.findUserPw= (req, res) => {
+   const username = req.body.username;
+   const password = req.body.password;
+
+   Users.findAll({ where: { username : username }})
+     .then(data => {
+      if(data != null  && data.length > 0){
+        if(data[0].dataValues.password == password){
+          res.send(data[0]);
+        }
+        else{
+          res.send({
+            boolean : false
+          });
+        }
+      }
+      else{
+        res.send({
+          boolean : false
+        })
+      }
+     })
+     .catch(err => {
+       res.status(500).send({
+         message: "Error retrieving user"
+       });
+     });
+ };
+
  //supprime un user en fonction de son id
  exports.deleteUser = (req, res) => {
    const id = req.params.id;
