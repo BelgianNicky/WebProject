@@ -140,7 +140,7 @@ exports.createUsers = (req, res) => {
  };
 
   //retourne un user en fonction de son id
- exports.findUserPw= (req, res) => {
+ exports.testConnection= (req, res) => {
    const username = req.body.username;
    const password = req.body.password;
 

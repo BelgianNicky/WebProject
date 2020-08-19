@@ -1,18 +1,18 @@
 {
-	"id": "ecb7d742-f0a1-4a59-8817-c49988b94dfb",
+	"id": "d844d1d9-f0dc-4c8c-ba5c-e04f2d023f7f",
 	"name": "users",
-	"timestamp": "2020-08-18T17:45:25.869Z",
+	"timestamp": "2020-08-19T20:31:22.977Z",
 	"collection_id": "ae19e59b-d4d5-4a2e-8885-b47ab950610e",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 4,
-	"totalFail": 2,
+	"totalPass": 6,
+	"totalFail": 3,
 	"results": [
 		{
 			"id": "185feed9-51ff-41fa-b1b5-dff8be604474",
-			"name": "/users GET",
+			"name": "/users/:id GET",
 			"url": "http://localhost:8080/api/users/15",
-			"time": 94,
+			"time": 81,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -32,7 +32,7 @@
 				}
 			},
 			"times": [
-				94
+				81
 			],
 			"allTests": [
 				{
@@ -45,7 +45,7 @@
 			"id": "f9eed3a5-3f34-4402-9742-2e404b8d5db4",
 			"name": "/users/ POST",
 			"url": "http://localhost:8080/api/users",
-			"time": 26,
+			"time": 24,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -75,7 +75,7 @@
 				}
 			},
 			"times": [
-				26
+				24
 			],
 			"allTests": [
 				{
@@ -85,10 +85,49 @@
 					"L'utilisateur n'est pas créé car l'email existe déjà": false
 				}
 			]
+		},
+		{
+			"id": "f43fd54e-dd29-4255-8f5b-f92db25ab37e",
+			"name": "/users GET",
+			"url": "http://localhost:8080/api/users",
+			"time": 21,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Identifiants corrects (username : aaa, mdp : aaa)": true,
+				"Identifiants incorrects": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Identifiants corrects (username : aaa, mdp : aaa)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Identifiants incorrects": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Identifiants corrects (username : aaa, mdp : aaa)": true,
+					"Identifiants incorrects": false
+				}
+			]
 		}
 	],
 	"count": 1,
-	"totalTime": 120,
+	"totalTime": 126,
 	"collection": {
 		"requests": [
 			{
@@ -98,6 +137,10 @@
 			{
 				"id": "f9eed3a5-3f34-4402-9742-2e404b8d5db4",
 				"method": "POST"
+			},
+			{
+				"id": "f43fd54e-dd29-4255-8f5b-f92db25ab37e",
+				"method": "GET"
 			}
 		]
 	}
