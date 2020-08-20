@@ -12,11 +12,11 @@
                   <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
               </ul>
           </p>
-        <label for="name" class="grey-text">Votre nom d'utilisateur</label>
-        <input type="text" id="name" class="form-control" v-model="username" name="username" />
+        <label for="username" class="grey-text">Votre nom d'utilisateur</label>
+        <input type="text" id="username" class="form-control" v-model="username" name="username" />
         <br />
-        <label for="name" class="grey-text">Votre nom et prénom</label>
-        <input type="text" id="name" class="form-control" v-model="name" name="name" />
+        <label for="full_name" class="grey-text">Votre nom et prénom</label>
+        <input type="text" id="full_name" class="form-control" v-model="Full_name" name="full_name" />
         <br />
         <label for="email" class="grey-text">Votre adresse de livraison</label>
         <input type="email" id="email" class="form-control" v-model="adresse" name="adresse" />
@@ -25,7 +25,7 @@
         <input type="email" id="email" class="form-control" v-model="ville" name="ville" />
         <br>
         <label for="email" class="grey-text">code postal</label>
-        <input type="email" id="email" class="form-control" v-model="postal" name="postal" />
+        <input type="email" id="email" class="form-control" v-model="code_postal" name="code_postal" />
         <br />
         <label for="email" class="grey-text">Votre email</label>
         <input type="email" id="email" class="form-control" v-model="email" name="email" />
@@ -59,10 +59,10 @@ export default {
   data: function(){ return {
     errors: [],
     username: null,
-    name: null,
+    full_name: null,
     adresse: null,
     ville: null,
-    postal: null,
+    code_postal: null,
     email: null,
     password: null,
     confirmPwd: null,
@@ -72,8 +72,9 @@ export default {
     checkForm (e) {
       if (this.name && this.email && this.pwd === this.confirmPwd) {
         /*
-        if(UsersDataService.create(users:{username:this.username,name:this.name, adresse:this.adresse, ville:this.ville, postal:this.postal, email:this.email, password:this.password})) {
-          return true;
+        resp = UsersDataService.create(users:{username:this.username,full_name:this.full_name, adresse:this.adresse, ville:this.ville, code_postal:this.code_postal, email:this.email, password:this.password}) 
+        if (resp.boolean)
+          print(acc created);
         }
         else{
           this.errors.push("Problème lors de la création du compte. Email déjà existant");
@@ -87,7 +88,7 @@ export default {
       if (!this.username) {
         this.errors.push("Nom d'utilisateur obligatoire");
       }
-      if (!this.name) {
+      if (!this.full_name) {
         this.errors.push("Nom complet obligatoire");
       }
       if (!this.adresse) {
@@ -96,7 +97,7 @@ export default {
       if (!this.ville) {
         this.errors.push("Ville obligatoire");
       }
-      if (!this.postal) {
+      if (!this.code_postal) {
         this.errors.push("Code postal obligatoire");
       }
       if (!this.email) {
