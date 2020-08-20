@@ -28,6 +28,7 @@ db.type = require("./type.model.js")(sequelize, Sequelize);
 db.categorie = require("./categorie.model.js")(sequelize, Sequelize);
 db.objet = require("./objet.model.js")(sequelize, Sequelize);
 db.commande = require("./commande.model.js")(sequelize, Sequelize);
+db.pani_prod = require("./pani_prod.model.js")(sequelize, Sequelize);
 
 //one to many entre users et habitation
 db.habitation.hasMany(db.users, { as: "users" });

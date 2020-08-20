@@ -14,7 +14,8 @@ exports.createUsers = (req, res) => {
     .then(usernameData =>{
       if(usernameData != null  && usernameData.length > 0){
         res.send({
-          usernameError : "username already exists"
+          error : "username already exists",
+          boolean : false
         })
       }
       else{
@@ -23,7 +24,8 @@ exports.createUsers = (req, res) => {
         .then(emailData =>{
           if(emailData != null  && emailData.length > 0){
             res.send({
-              emailError : "email already exists"
+              error : "email already exists",
+              boolean : false
             })
           }
           else{
@@ -48,12 +50,14 @@ exports.createUsers = (req, res) => {
                   // Création du user
                   Users.create(users)
                   .then(data => {
-                    res.send(data);
+                    res.send({
+                      boolean : true
+                    });
                   })
                   .catch(err => {
                     res.status(500).send({
                       message:
-                        err.message || "Some error occurred while creating the User with 'habitation' already existing in the database."
+                        err.message || "Some error occurred while creating the User"
                     });
                   });
                 })                
@@ -87,7 +91,7 @@ exports.createUsers = (req, res) => {
                     .catch(err => {
                       res.status(500).send({
                         message:
-                          err.message || "Some error occurred while creating the User with 'habitation' already existing in the database."
+                          err.message || "Some error occurred while creating the User"
                       });
                     });
                   })
@@ -139,7 +143,8 @@ exports.createUsers = (req, res) => {
      });
  };
 
-  //retourne un user en fonction de son id
+  //test si les informations renseignées par l'utilisateur correspondent à un
+  //utilisateur existant dans la DB au niveau du username et du password
  exports.testConnection= (req, res) => {
    const username = req.body.username;
    const password = req.body.password;
@@ -148,7 +153,7 @@ exports.createUsers = (req, res) => {
      .then(data => {
       if(data != null  && data.length > 0){
         if(data[0].dataValues.password == password){
-          res.send(data[0]);
+          res.send({data : data[0],boolean : true});
         }
         else{
           res.send({

@@ -1,8 +1,8 @@
 module.exports = {
   HOST: "51.210.149.38",
   PORT: '3306',
-  USER: "max",
-  PASSWORD: "lambert",
+  USER: "mathias",
+  PASSWORD: "gassmann",
   DB: "mybase",
   dialect: "mysql",
   pool: {
