@@ -51,9 +51,9 @@ export default {
       PanierDataService.create()
         .then((response) => {
           console.log(response.data);
-          this.panier.id = response.data.id;
-          this.panier.quantite = response.data.quantite;
-          this.panier.montant_tot = response.data.montant_tot;
+          //this.panier.id = response.data.id;
+          //this.panier.quantite = response.data.quantite;
+          //this.panier.montant_tot = response.data.montant_tot;
         })
         .catch((e) => {
           console.log(e);

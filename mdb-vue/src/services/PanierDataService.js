@@ -10,7 +10,7 @@ class PanierDataService {
   }
 
   create() {
-    return http.post("/panier");
+    return http.get("/categorie");
   }
 
   /*update(id, data) {
