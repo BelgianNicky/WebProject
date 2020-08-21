@@ -5,8 +5,8 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  //origin: "http://localhost:8081"
-  origin: "http://logistick.be"
+  origin: "http://localhost:8081",
+  //origin: "http://logistick.be"
 };
 
 app.use(cors(corsOptions));
@@ -30,7 +30,6 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
 
 /*const db = require("./app/models/index");
 const controller = require("./app/controllers/panier.controller");
