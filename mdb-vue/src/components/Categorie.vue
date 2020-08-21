@@ -27,9 +27,18 @@
 
 <!-- FAIRE UNE REQUËTE A LA BDD SUR CHAQUE "ID" DE CATEGORIE POUR RECUPERER LES TYPES DE PRODUITS DE CHAQUE CATEGORIES, ET ITERER SUR CHAQUE CATEGORIE-->
 <script>
+//import CategorieDataService from "../services/CategorieDataService";
+
 import Type from "../components/Type";
 import { mapState } from "vuex";
 export default {
+  /*
+  data() {
+    return{
+      cats= CategorieDataService.getAll();
+    }
+  }
+  */
   props: {
     id: {
       type: String,
