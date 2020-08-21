@@ -1,7 +1,8 @@
 const db = require("../models");
 const Type= db.type;
+const Op = db.Sequelize.Op;
 
-//retourne tous les types
+/*retourne tous les types
 exports.findAllType = (req, res) => {
   Type.findAll()
     .then(data =>{
@@ -13,7 +14,7 @@ exports.findAllType = (req, res) => {
           err.message || "Some error occurred while retrieving type."
       });
     });
-};
+};*/
 
 //retourne un type en fonction de son id
 exports.findOneType = (req, res) => {
@@ -92,6 +93,22 @@ exports.deleteType = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message: "Could not delete Type with id=" + id
+      });
+    });
+};
+//retourne tous les types qui ont comme id cat l'id passé en query
+exports.findAllTypeCat = (req, res) => {
+  const categorieId = req.query.categorieId;
+  var condition = categorieId ? { categorieId: { [Op.like]: `%${categorieId}%` } } : null;
+
+  Type.findAll({ where: condition })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving types."
       });
     });
 };

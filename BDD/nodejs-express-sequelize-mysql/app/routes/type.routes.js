@@ -8,7 +8,8 @@ module.exports = app => {
     router.post('/', TypeController.createType);
     router.put('/:id', TypeController.updateType);
     router.delete('/:id', TypeController.deleteType);
-    router.get('/', TypeController.findAllType);
+    //router.get('/', TypeController.findAllType);
+    router.get('/',TypeController.findAllTypeCat);
 
     app.use('/api/type',router);
 };

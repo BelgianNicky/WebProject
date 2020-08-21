@@ -1,5 +1,6 @@
 const db = require("../models");
 const Produit= db.produit;
+const Op = db.Sequelize.Op;
 
 //cree une produit
 exports.createProduit = (req, res) => {
@@ -96,6 +97,22 @@ exports.deleteProduit = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message: "Could not delete Produit with id=" + id
+      });
+    });
+};
+//retourne tous les produits qui ont comme id type l'id passé en query
+exports.findAllProduitType = (req, res) => {
+  const typeId = req.query.typeId;
+  var condition = typeId ? { typeId: { [Op.like]: `%${typeId}%` } } : null;
+
+  Produit.findAll({ where: condition })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving produits."
       });
     });
 };
