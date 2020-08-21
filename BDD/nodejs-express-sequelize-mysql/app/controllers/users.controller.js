@@ -37,7 +37,7 @@ exports.createUsers = (req, res) => {
                 // Création d'un panier vide, à attribuer au user
                 ControllerPanier.createPanier().then(panier => {
                   const {dataValues} = panier;
-        
+
                   const users = {
                     username: req.body.username,
                     password: req.body.password,
@@ -60,7 +60,7 @@ exports.createUsers = (req, res) => {
                         err.message || "Some error occurred while creating the User"
                     });
                   });
-                })                
+                })
               }
               // Si elle n'existe pas, créer une nouvelle ville et attribue l'ID de cette nouvelle ville au user
               else{
@@ -73,7 +73,7 @@ exports.createUsers = (req, res) => {
                   // Création d'un panier vide, à attribuer au user
                   ControllerPanier.createPanier().then(panier => {
                     const {dataValues} = panier;
-          
+
                     const users = {
                       username: req.body.username,
                       password: req.body.password,
@@ -102,7 +102,7 @@ exports.createUsers = (req, res) => {
                       err.message || "Some error occurred while creating habitation"
                   });
                 });
-              } 
+              }
             })
             .catch(err => {
               res.status(500).send({
@@ -195,6 +195,29 @@ exports.createUsers = (req, res) => {
      .catch(err => {
        res.status(500).send({
          message: "Could not delete user with id=" + id
+       });
+     });
+ };
+ //met a jour un Produit
+ exports.updateUsers = (req, res) => {
+   const id = req.params.id;
+   Users.update(req.body.adresse, {
+     where: { id: id }
+   })
+     .then(num => {
+       if (num == 1) {
+         res.send({
+           message: "User was updated successfully."
+         });
+       } else {
+         res.send({
+           message: `Cannot update User with id=${id}. Maybe User was not found or req.body is empty!`
+         });
+       }
+     })
+     .catch(err => {
+       res.status(500).send({
+         message: "Error updating User with id=" + id
        });
      });
  };
