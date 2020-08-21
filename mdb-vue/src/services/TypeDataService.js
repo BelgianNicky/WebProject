@@ -5,7 +5,7 @@ class TypeDataService {
     return http.get("/type");
   }
 
-  getCategorie(id) {
+  getTypeFromCategorie(id) {
     return http.get(`/type?categorieId=${id}`);
   }
 

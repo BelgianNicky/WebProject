@@ -2,8 +2,8 @@
   <div>
     <h1>Page Catalogue</h1>
     <div v-for="el in catElements" v-bind:key="el.id">
-      <h4>{{el.name}}</h4>
-      <Config1 v-bind:el="el" />
+      <h1>{{el.name}}</h1>
+      <Config1 v-bind:el="el.id" />
     </div>
   </div>
 </template>
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       catElements: [],
+      typeElements: [],
     };
   },
   created() {
