@@ -65,65 +65,66 @@
 
 
 <script>
-  import {
+import {
+  mdbContainer,
+  mdbInput,
+  mdbCard,
+  mdbCardTitle,
+  mdbCardText,
+  mdbCardBody,
+  mdbIcon,
+  mdbBtn,
+  mdbRow,
+  mdbCol,
+} from "mdbvue";
+
+export default {
+  name: "Contact",
+  components: {
     mdbContainer,
     mdbInput,
     mdbCard,
     mdbCardTitle,
-    mdbCardText,
     mdbCardBody,
+    mdbCardText,
     mdbIcon,
     mdbBtn,
     mdbRow,
-    mdbCol
-  } from "mdbvue";
-
-  export default {
-    name:"Contact",
-    components: {
-      mdbContainer,
-      mdbInput,
-      mdbCard,
-      mdbCardTitle,
-      mdbCardBody,
-      mdbCardText,
-      mdbIcon,
-      mdbBtn,
-      mdbRow,
-      mdbCol
+    mdbCol,
+  },
+  data() {
+    return {
+      fields: {
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      },
+    };
+  },
+  methods: {
+    submitForm(event) {
+      event.target.classList.add("was-validated");
+      // submit form
     },
-    data() {
-      return {
-        fields: {
-          name: "",
-          email: "",
-          subject: "",
-          message: ""
-        }
-      };
-    },
-    methods: {
-      submitForm(event) {
-        event.target.classList.add("was-validated");
-        // submit form
-      }
-    }
-  };
+  },
+};
 </script>
 
 <style scoped>
-  .container {
-    text-align: center;
-  }
-  .titre-sections {
-    margin-top:30px;
-    background: url(http://ecard.enter-media.org/upload/iblock/cf4/cf401a38b3c0190e91e68729a24795b6.jpg) repeat;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-position: 50% 50%;
-    position: relative;
-    line-height:normal;
-    font-size:3rem;
-    background-color:#FFF;
-    }
+.container {
+  text-align: center;
+}
+.titre-sections {
+  margin-top: 30px;
+  background: url(http://ecard.enter-media.org/upload/iblock/cf4/cf401a38b3c0190e91e68729a24795b6.jpg)
+    repeat;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-position: 50% 50%;
+  position: relative;
+  line-height: normal;
+  font-size: 3rem;
+  background-color: #fff;
+}
 </style>

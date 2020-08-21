@@ -37,7 +37,9 @@ export default {
   methods: {
     checkForm (e) {
         /*
-        if(UsersDataService.connnect(users:{email:this.email, password:this.password})) {
+        resp = UsersDataService.connnect(users:{email:this.email, password:this.password}) 
+          if (resp.boolean) {
+            stock dans store
           return true;
         }
         else{

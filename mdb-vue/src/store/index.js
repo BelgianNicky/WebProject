@@ -1,23 +1,24 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-import logo from '@/assets/logo.png';
-import rtx2060 from '@/assets/rtx2060.jpg';
-import chaise from '@/assets/chaise.jpg';
-import multiprise from '@/assets/multiprise.jpg';
+import logo from "@/assets/logo.png";
+import rtx2060 from "@/assets/rtx2060.jpg";
+import chaise from "@/assets/chaise.jpg";
+import multiprise from "@/assets/multiprise.jpg";
 export default new Vuex.Store({
   state: {
     storeName: "Logistick",
-    
+    isConnected: true,
+
     catalogueItems: [
       {
         id: "1",
         nom: "chaise",
         image: {
-					source: chaise,
-					alt: "chaise"
+          source: chaise,
+          alt: "chaise",
         },
         prix: 120,
         inStock: true,
@@ -28,8 +29,8 @@ export default new Vuex.Store({
         id: "2",
         nom: "rtx2060",
         image: {
-					source: rtx2060,
-					alt: "filtre"
+          source: rtx2060,
+          alt: "filtre",
         },
         prix: 10,
         inStock: false,
@@ -40,20 +41,20 @@ export default new Vuex.Store({
         id: "3",
         nom: "multiprise",
         image: {
-					source: multiprise,
-					alt: "multiprise"
+          source: multiprise,
+          alt: "multiprise",
         },
         prix: 5,
         inStock: true,
-        quantity : 10,
+        quantity: 10,
         description: "LOGON 4-WAY POWER STRIP: Black 1.5M",
       },
       {
         id: "1",
         nom: "chaise",
         image: {
-					source: chaise,
-					alt: "chaise"
+          source: chaise,
+          alt: "chaise",
         },
         prix: 120,
         inStock: true,
@@ -64,8 +65,8 @@ export default new Vuex.Store({
         id: "1",
         nom: "chaise",
         image: {
-					source: chaise,
-					alt: "chaise"
+          source: chaise,
+          alt: "chaise",
         },
         prix: 120,
         inStock: true,
@@ -76,8 +77,8 @@ export default new Vuex.Store({
         id: "1",
         nom: "chaise",
         image: {
-					source: chaise,
-					alt: "chaise"
+          source: chaise,
+          alt: "chaise",
         },
         prix: 120,
         inStock: true,
@@ -88,36 +89,36 @@ export default new Vuex.Store({
         id: "3",
         nom: "multiprise",
         image: {
-					source: multiprise,
-					alt: "multiprise"
+          source: multiprise,
+          alt: "multiprise",
         },
         prix: 5,
         inStock: true,
-        quantity : 10,
+        quantity: 10,
         description: "LOGON 4-WAY POWER STRIP: Black 1.5M",
       },
       {
         id: "3",
         nom: "multiprise",
         image: {
-					source: multiprise,
-					alt: "multiprise"
+          source: multiprise,
+          alt: "multiprise",
         },
         prix: 5,
         inStock: true,
-        quantity : 10,
+        quantity: 10,
         description: "LOGON 4-WAY POWER STRIP: Black 1.5M",
       },
       {
         id: "3",
         nom: "multiprise",
         image: {
-					source: multiprise,
-					alt: "multiprise"
+          source: multiprise,
+          alt: "multiprise",
         },
         prix: 5,
         inStock: true,
-        quantity : 10,
+        quantity: 10,
         description: "LOGON 4-WAY POWER STRIP: Black 1.5M",
       },
     ],
@@ -141,25 +142,25 @@ export default new Vuex.Store({
       {
         id: "1",
         image: {
-					source: logo,
-					alt: "processeur"
-				},
+          source: logo,
+          alt: "processeur",
+        },
         nom: "processeur",
       },
       {
         id: "2",
         image: {
-					source: logo,
-					alt: "carte_mère"
-				},
+          source: logo,
+          alt: "carte_mère",
+        },
         nom: "carteMeres",
       },
       {
         id: "3",
         image: {
-					source: logo,
-					alt: "mémoire"
-				},
+          source: logo,
+          alt: "mémoire",
+        },
         nom: "memoire",
       },
     ],
@@ -168,9 +169,9 @@ export default new Vuex.Store({
       {
         id: "1",
         image: {
-					source: logo,
-					alt: "logo"
-				},
+          source: logo,
+          alt: "logo",
+        },
         nom: "Processeur Intel® Core™ i7-8700",
         prix: "3",
         stock: "333",
@@ -179,9 +180,9 @@ export default new Vuex.Store({
       {
         id: "2",
         image: {
-					source: logo,
-					alt: "logo"
-				},
+          source: logo,
+          alt: "logo",
+        },
         nom: "Processeur Intel® Core™ i7-9700T",
         prix: "3",
         stock: "333",
@@ -190,9 +191,9 @@ export default new Vuex.Store({
       {
         id: "3",
         image: {
-					source: logo,
-					alt: "logo"
-				},
+          source: logo,
+          alt: "logo",
+        },
         nom: "Processeur Intel® Core™ i7-10700K",
         prix: "3",
         stock: "333",
@@ -421,20 +422,18 @@ export default new Vuex.Store({
         description: "yes",
       },
     ],
-
   },
   mutations: {
-    //nom sera remplacé par ID (du type) pour accéder aux produits correspondant à un certain type 
-    UPDATE_CATALOGUE_ITEMS(state,id){
-      state.catalogueItems = state.$({id});
-    }
+    //nom sera remplacé par ID (du type) pour accéder aux produits correspondant à un certain type
+    UPDATE_CATALOGUE_ITEMS(state, id) {
+      state.catalogueItems = state.$({ id });
+    },
   },
   actions: {
-    //nom sera remplacé par ID (du type) pour accéder aux produits correspondant à un certain type 
-    updateCatalogueItems({commit}, id){
-      commit("UPDATE_CATALOGUE_ITEMS", id)
-    }
+    //nom sera remplacé par ID (du type) pour accéder aux produits correspondant à un certain type
+    updateCatalogueItems({ commit }, id) {
+      commit("UPDATE_CATALOGUE_ITEMS", id);
+    },
   },
-  modules: {
-  }
-})
+  modules: {},
+});
