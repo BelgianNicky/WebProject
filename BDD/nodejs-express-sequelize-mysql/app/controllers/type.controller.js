@@ -34,7 +34,7 @@ exports.findOneType = (req, res) => {
 exports.createType = (req, res) => {
   const type = {
     name: req.body.name,
-    categorieId: req.categorieId
+    categorieId: req.body.categorieId
   };
   Type.create(type)
     .then(data => {
