@@ -7,6 +7,7 @@ import logo from "@/assets/logo.png";
 import rtx2060 from "@/assets/rtx2060.jpg";
 import chaise from "@/assets/chaise.jpg";
 import multiprise from "@/assets/multiprise.jpg";
+
 export default new Vuex.Store({
   state: {
     storeName: "Logistick",
