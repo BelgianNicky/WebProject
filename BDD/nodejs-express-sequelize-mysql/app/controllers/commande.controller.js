@@ -6,7 +6,6 @@ const Op = db.Sequelize.Op;
 exports.createCommande = (req, res) => {
   const commande = {
     mode_payement: req.body.mode_payement,
-    prix_tot: req.body.prix_tot,
     panierId: req.body.panierId
   };
 

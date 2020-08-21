@@ -7,6 +7,7 @@ module.exports = app => {
     router.post('/', UsersController.createUsers);
     router.get('/:id', UsersController.findOneUsers);
     router.get('/', UsersController.testConnection);
+    router.put("/:id", UsersController.updateUsers);
 
     app.use('/api/users',router);
 };
