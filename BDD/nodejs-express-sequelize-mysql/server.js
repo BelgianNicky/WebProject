@@ -4,12 +4,12 @@ const cors = require("cors");
 
 const app = express();
 
-var corsOptions = {
+/*var corsOptions = {
   //origin: "http://localhost:8081",
   origin: "http://logistick.be"
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions));*/
 
 app.use(function(req, res) {
   res.header("Access-Control-Allow-Origin", "logistick.be");
