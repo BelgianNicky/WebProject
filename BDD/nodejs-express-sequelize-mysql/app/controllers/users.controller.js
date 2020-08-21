@@ -198,10 +198,10 @@ exports.createUsers = (req, res) => {
        });
      });
  };
- //met a jour un Produit
+ //met a jour un User
  exports.updateUsers = (req, res) => {
    const id = req.params.id;
-   Users.update(req.body.adresse, {
+   Users.update(req.body, {
      where: { id: id }
    })
      .then(num => {
