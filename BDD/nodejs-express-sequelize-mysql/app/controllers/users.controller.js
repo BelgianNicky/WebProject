@@ -148,8 +148,9 @@ exports.createUsers = (req, res) => {
   //test si les informations renseignées par l'utilisateur correspondent à un
   //utilisateur existant dans la DB au niveau du username et du password
  exports.testConnection= (req, res) => {
-   const username = req.body.username;
-   const password = req.body.password;
+
+   const username = req.query.username;
+   const password = req.query.password;
 
    Users.findAll({ where: { username : username }})
      .then(data => {
