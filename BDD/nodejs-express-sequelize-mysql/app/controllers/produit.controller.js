@@ -9,6 +9,7 @@ exports.createProduit = (req, res) => {
     stock: req.body.stock,
     nom: req.body.nom,
     description: req.body.description,
+    image: req.body.image,
     typeId: req.body.typeId
   };
 
