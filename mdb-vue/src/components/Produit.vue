@@ -1,18 +1,24 @@
 <template>
-  <div>
-    <div v-for="el in produitElements" v-bind:key="el.id">
-      <h6>
-        {{el.nom}}
-        <b-button
-          v-if="isConnected"
-          href="#"
-          @click="addPanier"
-          size="sm"
-          variant="primary"
-        >Ajouter au panier</b-button>
-      </h6>
+  <b-container fluid>
+    <div>
+      <div v-for="el in produitElements" v-bind:key="el.id">
+        <h6>
+          <b-img v-bind:src="el.image" fluid alt="Responsive image" class="img"></b-img>
+          <b>Nom :</b>
+          {{el.nom}} -
+          <b>Description :</b>
+          {{el.description}}
+          <b-button
+            v-if="isConnected"
+            href="#"
+            @click="addPanier"
+            size="sm"
+            variant="primary"
+          >Ajouter au panier</b-button>
+        </h6>
+      </div>
     </div>
-  </div>
+  </b-container>
 </template>
 
 
@@ -43,3 +49,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.img {
+  max-height: 100px;
+}
+</style>

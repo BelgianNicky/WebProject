@@ -95,17 +95,22 @@ export default {
   width: 100%;
   height: 30%;
 }
-
+/*
 @media (max-width: 1599px) {
   .type {
     padding: 0%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 @media (min-width: 1600px) {
   .type {
-    display: grid;
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
     gap: 5px;
   }
 }
+*/
 </style>
