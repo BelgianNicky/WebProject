@@ -3,15 +3,23 @@
     <div v-for="el in typeElements" v-bind:key="el.id">
       <div role="tablist">
         <b-card no-body>
-          <b-card-header header-tag="header" class="type" role="tab">
+          <b-card
+            v-bind:title="el.name"
+            v-bind:img-src="el.image"
+            img-alt="Image"
+            img-left
+            tag="article"
+            class="mb-3 cardType"
+          >
+            <b-card-text>Some quick example text to build on the card and make up the bulk of the card's content.</b-card-text>
             <b-button
               block
               v-b-toggle="'accordion-' + el.name"
               variant="info"
               size="md"
               class="btn-default btnType"
-            >{{ el.name }}</b-button>
-          </b-card-header>
+            >Montrez les {{ el.name }}</b-button>
+          </b-card>
           <b-collapse :id="'accordion-' + el.name" accordion="my-accordionType" role="tabpanel">
             <b-card-body class="type">
               <Produit v-bind:el="el.id" />
@@ -52,4 +60,7 @@ export default {
 </script>
 
 <style scoped>
+.cardType {
+  max-width: 100%;
+}
 </style>
