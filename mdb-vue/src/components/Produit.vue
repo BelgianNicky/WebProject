@@ -3,24 +3,29 @@
     <div>
       <div v-for="el in produitElements" v-bind:key="el.id">
         <h6>
-          <b-img v-bind:src="el.image" fluid alt="Responsive image" class="img"></b-img>
+          <b-img
+            v-bind:src="el.image"
+            fluid
+            alt="Responsive image"
+            class="img"
+          ></b-img>
           <b>Nom :</b>
-          {{el.nom}} -
+          {{ el.nom }} -
           <b>Description :</b>
-          {{el.description}}
+          {{ el.description }}
           <b-button
             v-if="isConnected"
             href="#"
             @click="addPanier"
             size="sm"
             variant="primary"
-          >Ajouter au panier</b-button>
+            >Ajouter au panier</b-button
+          >
         </h6>
       </div>
     </div>
   </b-container>
 </template>
-
 
 <script>
 import ProduitDataService from "../services/ProduitDataService";

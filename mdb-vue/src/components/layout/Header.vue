@@ -15,7 +15,7 @@
         </mdb-form-inline>
         <mdb-nav-item href="#" to="/inscription" v-if="!isConnected">Inscription</mdb-nav-item>
         <mdb-nav-item href="#" to="/connexion" v-if="!isConnected">Connexion</mdb-nav-item>
-        <mdb-nav-item href="#" to="/" v-if="isConnected">Connecté</mdb-nav-item>
+        <mdb-nav-item href="#" to="/" v-if="isConnected">Se déconnecter</mdb-nav-item>
       </mdb-navbar-nav>
     </mdb-navbar-toggler>
   </mdb-navbar>
