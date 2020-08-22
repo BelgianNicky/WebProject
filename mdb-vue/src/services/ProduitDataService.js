@@ -5,6 +5,10 @@ class ProduitDataService {
     return http.get("/produit");
   }
 
+  getProduitsFromType(id) {
+    return http.get(`/produit?typeId=${id}`);
+  }
+
   get(id) {
     return http.get(`/produit/${id}`);
   }

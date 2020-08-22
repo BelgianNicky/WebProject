@@ -5,8 +5,8 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  //origin: "http://localhost:8081",
-  origin: "http://logistick.be"
+  origin: "http://localhost:8081",
+  //origin: "http://logistick.be"
 };
 
 app.use(cors(corsOptions));
@@ -26,7 +26,7 @@ require("./app/routes/commande.routes")(app);
 require("./app/routes/produit.routes")(app);
 
 // set port, listen for requests
-const port = 3000;
+const port = 8080;
 const server = app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
 });
