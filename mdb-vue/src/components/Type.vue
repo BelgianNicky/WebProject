@@ -1,55 +1,55 @@
 <template>
-  <b-container fluid>
-    <div>
-      <b-card
-        :img-src="image.source"
-        :img-alt="image.alt"
-        class="card"
-        @click="updateCatalogueItems(id)"
-        img-top
-      >
-        <span class="text">{{ nom }}</span>
-      </b-card>
+  <div>
+    <div v-for="el in typeElements" v-bind:key="el.id">
+      <div role="tablist">
+        <b-card no-body>
+          <b-card-header header-tag="header" class="type" role="tab">
+            <b-button
+              block
+              v-b-toggle="'accordion-' + el.name"
+              variant="info"
+              size="md"
+              class="btn-default btnType"
+            >{{ el.name }}</b-button>
+          </b-card-header>
+          <b-collapse :id="'accordion-' + el.name" accordion="my-accordionType" role="tabpanel">
+            <b-card-body class="type">
+              <Produit v-bind:el="el.id" />
+            </b-card-body>
+          </b-collapse>
+        </b-card>
+      </div>
     </div>
-  </b-container>
+  </div>
 </template>
 
+
 <script>
-import { mapActions } from "vuex";
+import TypeDataService from "../services/TypeDataService";
+import Produit from "../components/Produit";
+
 export default {
   name: "Type",
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    image: {
-      type: Object,
-      required: true,
-    },
-    nom: {
-      type: String,
-      required: true,
-    },
+  components: {
+    Produit,
   },
-  components: {},
-  methods: {
-    ...mapActions(["updateCatalogueItems"]),
+  props: ["el"],
+  data() {
+    return {
+      typeElements: [],
+      Processeur: require("@/assets/5.png"),
+    };
+  },
+
+  created() {
+    console.log("in created type");
+    console.log(this.$props.el);
+    TypeDataService.getTypeFromCategorie(this.$props.el)
+      .then((res) => (this.typeElements = res.data))
+      .catch((err) => console.log(err));
   },
 };
 </script>
 
 <style scoped>
-.card {
-  width: 100%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-}
-.card-body {
-  padding: 0px;
-}
-.text {
-  font-size: 10px;
-}
 </style>

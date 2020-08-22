@@ -1,57 +1,56 @@
 <template>
   <b-container fluid>
     <div class="Catalogue">
-      <h1 class="title">Catalogue</h1>
+      <h1 class="title">Notre Catalogue</h1>
 
-      <section class="categories">
-        <Categorie v-for="item in categorie" :categorie="item.nom" :id="item.id" :key="item.nom" />
-      </section>
-
-      <section class="catalogueItems">
-        <span class="sous-section">
-          <CatalogueItem
-            v-for="item in catalogueItems"
-            :nom="item.nom"
-            :image="item.image"
-            :prix="item.prix"
-            :inStock="item.inStock"
-            :quantity="item.quantity"
-            :description="item.description"
-            :key="item.nom"
-          />
-        </span>
-      </section>
+      <div v-for="el in catElements" v-bind:key="el.id">
+        <div role="tablist">
+          <b-card no-body>
+            <b-card-header header-tag="header" class="p-1" role="tab">
+              <b-button
+                block
+                v-b-toggle="'accordion-' + el.id"
+                variant="info"
+                size="md"
+                class="bouton"
+              >{{ el.name }}</b-button>
+            </b-card-header>
+            <b-collapse :id="'accordion-' + el.id" accordion="my-accordion" role="tabpanel">
+              <b-card-body class="type">
+                <Type v-bind:el="el.id" />
+              </b-card-body>
+            </b-collapse>
+          </b-card>
+        </div>
+      </div>
     </div>
   </b-container>
 </template>
 
 <script>
-import Categorie from "../components/Categorie";
-import CatalogueItem from "../components/CatalogueItem";
-import { mapState } from "vuex";
+import CategorieDataService from "../services/CategorieDataService";
+import Type from "../components/Type";
 
 export default {
   name: "Catalogue",
   components: {
-    CatalogueItem,
-    Categorie,
+    Type,
   },
-  computed: {
-    ...mapState({
-      storeName: "storeName",
-      categorie: "categorie",
-      catalogueItems: "catalogueItems",
-    }),
+  data() {
+    return {
+      catElements: [],
+    };
   },
-  methods: {},
+  created() {
+    // request de toutes les catégories à la db via api call
+    CategorieDataService.getAll()
+      .then((res) => (this.catElements = res.data))
+      .catch((err) => console.log(err));
+  },
 };
 </script>
 
 <style scoped>
-/*.Catalogue{
-	max-width: 80%;
-	margin: auto;
-}*/
 .title {
   margin: 30px;
   font-family: Verdana, Tahoma, sans-serif;
@@ -73,10 +72,6 @@ export default {
     float: left;
     padding-left: 5%;
     padding-right: 5%;
-    /*display: flex;
-	flex-direction: column;
-	justify-content: start;
-	align-items: flex-start;*/
   }
 }
 
@@ -93,10 +88,24 @@ export default {
     float: left;
     padding-left: 5%;
     padding-right: 5%;
-    /*display: flex;
-	flex-direction: column;
-	justify-content: start;
-	align-items: flex-start;*/
+  }
+}
+
+.bouton {
+  width: 100%;
+  height: 30%;
+}
+
+@media (max-width: 1599px) {
+  .type {
+    padding: 0%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .type {
+    display: grid;
+    gap: 5px;
   }
 }
 </style>
