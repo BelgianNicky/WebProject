@@ -49,6 +49,22 @@ exports.createType = (req, res) => {
       });
     });
 };
+
+// Fonction pour créer un type en passant le body en paramètre
+exports.createTypeForDb = (type) => {
+  return Type.create({
+    name: type.name,
+    image: type.image,
+    categorieId: type.categorieId
+  })
+    .then((type) => {
+      return type;
+    })
+    .catch((err) => {
+      console.log(">> Error while creating type: ", err);
+    });
+};
+
 //met a jour un Type
 exports.updateType = (req, res) => {
   const id = req.params.id;

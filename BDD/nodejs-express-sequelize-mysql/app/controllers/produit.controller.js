@@ -25,6 +25,24 @@ exports.createProduit = (req, res) => {
     });
 };
 
+// Fonction pour créer un type en passant le body en paramètre
+exports.createProduitForDb = (produit) => {
+  return Produit.create({
+    prix: produit.prix,
+    stock: produit.stock,
+    nom: produit.nom,
+    description: produit.description,
+    image: produit.image,
+    typeId: produit.typeId
+  })
+    .then((produit) => {
+      return produit;
+    })
+    .catch((err) => {
+      console.log(">> Error while creating produit: ", err);
+    });
+};
+
 //retourne un produit en fonction de son id
 exports.findOneProduit = (req, res) => {
   const id = req.params.id;

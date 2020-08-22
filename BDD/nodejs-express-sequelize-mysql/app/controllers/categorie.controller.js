@@ -47,6 +47,20 @@ exports.createCategorie = (req, res) => {
       });
     });
 };
+
+// Fonction pour créer une catégorie en passant le body en paramètre
+exports.createCategorieForDb = (categorie) => {
+  return Categorie.create({
+    name: categorie.name,
+  })
+    .then((categorie) => {
+      return categorie;
+    })
+    .catch((err) => {
+      console.log(">> Error while creating categorie: ", err);
+    });
+};
+
 //met a jour une categorie
 exports.updateCategorie = (req, res) => {
   const id = req.params.id;
