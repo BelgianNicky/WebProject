@@ -12,11 +12,11 @@
                   <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
               </ul>
           </p>
-        <label for="email" class="grey-text">Email</label>
-        <input type="email" id="email" class="form-control" v-model="email" name="email" />
+        <label for="username" class="grey-text">Username</label>
+        <input type="username" id="username" class="form-control" v-model="username" name="username" />
         <br />
-        <label for="pwd" class="grey-text">Mot de passe</label>
-        <input type="password" id="pwd" class="form-control" v-model="password" name="pwd" />
+        <label for="password" class="grey-text">Mot de passe</label>
+        <input type="password" id="password" class="form-control" v-model="password" name="password" />
         <br />
         <div class="text-center mt-4">
           <button class="btn btn-unique" type="submit">Se connecter</button>
@@ -27,26 +27,34 @@
 </template>
 
 <script>
+import UsersDataService from "../services/UsersDataService";
+
 export default {
   data: function(){ return {
     errors: [],
-    email: null,
+    username: null,
     password: null,
     };
   },
   methods: {
     checkForm (e) {
-        /*
-        resp = UsersDataService.connnect(users:{email:this.email, password:this.password}) 
-          if (resp.boolean) {
-            stock dans store
-          return true;
-        }
-        else{
-          this.errors.push("Email ou password mauvais.");
-        }
-        */
-      return e;
+      var dataForm = {"username":this.username, "password":this.password};
+      console.log(dataForm);
+      UsersDataService.testConnection(dataForm)
+      .then(res => {
+        this.resp = res.data
+          if(this.resp.boolean){
+            //set id et password into store
+            console.log('co'); 
+            
+          }
+          if(!this.resp.boolean){
+            alert("Username ou password erroné.");  
+          }
+      })
+      .catch((err) => console.log(err));
+      
+      e.preventDefault();
     }
 
   }
