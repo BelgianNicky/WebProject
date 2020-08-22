@@ -86,7 +86,9 @@ exports.createUsers = (req, res) => {
                     // Création du user
                     Users.create(users)
                     .then(data => {
-                      res.send(data);
+                      res.send({
+                        boolean : true
+                      });
                     })
                     .catch(err => {
                       res.status(500).send({
