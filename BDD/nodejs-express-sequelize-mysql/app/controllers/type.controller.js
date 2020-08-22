@@ -35,6 +35,7 @@ exports.findOneType = (req, res) => {
 exports.createType = (req, res) => {
   const type = {
     name: req.body.name,
+    image: req.body.image,
     categorieId: req.body.categorieId
   };
   Type.create(type)
