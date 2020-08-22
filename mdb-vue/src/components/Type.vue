@@ -1,34 +1,53 @@
 <template>
-  <div>
-    <div v-for="el in typeElements" v-bind:key="el.id">
-      <div role="tablist">
-        <b-card no-body>
-          <b-card
-            v-bind:title="el.name"
-            v-bind:img-src="el.image"
-            img-alt="Image"
-            img-left
-            tag="article"
-            class="mb-3 cardType"
-          >
-            <b-card-text>Some quick example text to build on the card and make up the bulk of the card's content.</b-card-text>
-            <b-button
-              block
-              v-b-toggle="'accordion-' + el.name"
-              variant="info"
-              size="md"
-              class="btn-default btnType"
-            >Montrez les {{ el.name }}</b-button>
+  <b-container fluid>
+    <div>
+      <div v-for="el in typeElements" v-bind:key="el.id">
+        <div role="tablist">
+          <b-card no-body>
+            <b-card
+              v-bind:title="el.name"
+              v-bind:img-src="el.image"
+              img-alt="Image"
+              img-left
+              img-width="30%"
+              img-height="40%"
+              tag="article"
+              class="cardType"
+            >
+              <b-card-text>
+                <h5>Pour voir l'ensemble de nos {{el.name}}</h5>
+              </b-card-text>
+              <b-card-text>
+                <h5>Cliquez sur le bouton ci-dessous!</h5>
+              </b-card-text>
+              <div class="fill">.</div>
+              <div class="fill">.</div>
+              <div class="fill">.</div>
+              <div class="fill">.</div>
+              <div class="fill">.</div>
+              <div class="fill">.</div>
+              <div class="fill">.</div>
+              <div class="fill">.</div>
+              <div class="fill">.</div>
+              <b-button
+                block
+                v-b-toggle="'accordion-' + el.name"
+                variant="info"
+                size="md"
+                bottom
+                class="btn-default btnType"
+              >Montrez les {{ el.name }}</b-button>
+            </b-card>
+            <b-collapse :id="'accordion-' + el.name" accordion="my-accordionType" role="tabpanel">
+              <b-card-body class="type">
+                <Produit v-bind:el="el.id" />
+              </b-card-body>
+            </b-collapse>
           </b-card>
-          <b-collapse :id="'accordion-' + el.name" accordion="my-accordionType" role="tabpanel">
-            <b-card-body class="type">
-              <Produit v-bind:el="el.id" />
-            </b-card-body>
-          </b-collapse>
-        </b-card>
+        </div>
       </div>
     </div>
-  </div>
+  </b-container>
 </template>
 
 
@@ -60,7 +79,17 @@ export default {
 </script>
 
 <style scoped>
+/*
 .cardType {
   max-width: 100%;
+}
+*/
+
+.btnType {
+  bottom: 0;
+}
+
+.fill {
+  visibility: hidden;
 }
 </style>
