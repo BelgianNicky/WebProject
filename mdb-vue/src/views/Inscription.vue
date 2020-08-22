@@ -68,42 +68,50 @@ export default {
     confirmPwd: null,
     resp: [],
     dataForm:{},
+    Ttrue: true,
     };
   },
   methods: {
     checkForm (e) {
 
       this.errors = [];
+      this.Ttrue = true;
+      
+        if (!this.username) {
+          this.errors.push("Nom d'utilisateur obligatoire");
+          this.Ttrue = false;
+        }
+        if (!this.full_name) {
+          this.errors.push("Nom complet obligatoire");
+          this.Ttrue = false;
+        }
+        if (!this.adresse) {
+          this.errors.push("Adresse obligatoire");
+          this.Ttrue = false;
+        }
+        if (!this.ville) {
+          this.errors.push("Ville obligatoire");
+          this.Ttrue = false;
+        }
+        if (!this.code_postal) {
+          this.errors.push("Code postal obligatoire");
+          this.Ttrue = false;
+        }
+        if (!this.email) {
+          this.errors.push('Email obligatoire');
+          this.Ttrue = false;
+        } 
+        if (!this.validEmail(this.email)) {
+          this.errors.push('Email non valide');
+          this.Ttrue = false;
+        }
+        if (this.pwd !== this.confirmPwd) {
+          this.errors.push("Mots de passes différents");
+          this.Ttrue = false;
+        }
+      
 
-      if (!this.username) {
-        this.errors.push("Nom d'utilisateur obligatoire");
-      }
-      else if (!this.full_name) {
-        this.errors.push("Nom complet obligatoire");
-      }
-      else if (!this.adresse) {
-        this.errors.push("Adresse obligatoire");
-      }
-      else if (!this.ville) {
-        this.errors.push("Ville obligatoire");
-      }
-      else if (!this.code_postal) {
-        this.errors.push("Code postal obligatoire");
-      }
-      else if (!this.email) {
-        this.errors.push('Email obligatoire');
-      } 
-      else if (!this.validEmail(this.email)) {
-        this.errors.push('Email non valide');
-      }
-      else if (this.pwd !== this.confirmPwd) {
-        this.errors.push("Mots de passes différents");
-        console.log(this.pwd);
-        console.log(this.confirmPwd);
-      }
-
-      else{
-
+      if (this.Ttrue) {
       this.dataForm = {username:this.username,full_name:this.full_name, adresse:this.adresse, ville:this.ville, code_postal:this.code_postal, email:this.email, password:this.pwd};
       UsersDataService.create(this.dataForm)
       .then(res => {
@@ -112,6 +120,8 @@ export default {
             console.log('creation compte reussi');
             console.log(this.resp.boolean);
             console.log(this.resp);
+            alert("Compte créé!");
+            
           }
           if(!this.resp.boolean){
             console.log('creation compte raté');
