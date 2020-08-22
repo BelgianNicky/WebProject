@@ -24,20 +24,23 @@ require("./app/routes/categorie.routes")(app);
 require("./app/routes/type.routes")(app);
 require("./app/routes/commande.routes")(app);
 require("./app/routes/produit.routes")(app);
+require("./app/routes/pani_prod.routes")(app);
 
 // set port, listen for requests
-const port = 3000;
+const port = 8080;
 const server = app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
 });
 
 /*const db = require("./app/models/index");
 const controller = require("./app/controllers/panier.controller");
+const dbData = require("./dataDb");
 
 const run = async () => {
-  const panier1 = await controller.createPanier()
+  
+  dbData.launchDataDb();
 
-  /*const users1 = await controller.createUsers(1,1, {
+  const users1 = await controller.createUsers(1,1, {
     username: "mathiaslaclasse",
     password: "yololasticot",
     email: "mat@yopmail.com",
