@@ -1,7 +1,12 @@
 <template>
   <div>
     <div v-for="el in typeElements" v-bind:key="el.id">
-      <h6>{{el.name}}</h6>
+      <div>
+        <b-card :img-src="el.name" class="card" img-top>
+          <span class="text">{{ el.name }}</span>
+        </b-card>
+      </div>
+      <Config2 v-bind:el="el.id" />
     </div>
   </div>
 </template>
@@ -9,14 +14,18 @@
 
 <script>
 import TypeDataService from "../services/TypeDataService";
-//import axios from "axios";
+import Config2 from "../components/Config2";
 
 export default {
   name: "Config1",
+  components: {
+    Config2,
+  },
   props: ["el"],
   data() {
     return {
       typeElements: [],
+      Processeur: require("@/assets/5.png"),
     };
   },
 
