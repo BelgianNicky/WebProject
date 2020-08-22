@@ -13,9 +13,14 @@
                 variant="info"
                 size="md"
                 class="bouton"
-              >{{ el.name }}</b-button>
+                >{{ el.name }}</b-button
+              >
             </b-card-header>
-            <b-collapse :id="'accordion-' + el.id" accordion="my-accordion" role="tabpanel">
+            <b-collapse
+              :id="'accordion-' + el.id"
+              accordion="my-accordion"
+              role="tabpanel"
+            >
               <b-card-body class="type">
                 <Type v-bind:el="el.id" />
               </b-card-body>

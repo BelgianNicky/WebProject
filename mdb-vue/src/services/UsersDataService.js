@@ -9,12 +9,12 @@ class UsersDataService {
     return http.get(`/users/${id}`);
   }
 
-  testConnection(data){
-      return http.get("/users",data)
+  testConnection(data) {
+    return http.get("/users", data);
   }
 
   create(data) {
-    return http.get("/users", data);
+    return http.post("/users", data);
   }
 
   /*update(id, data) {

@@ -11,7 +11,7 @@ import multiprise from "@/assets/multiprise.jpg";
 export default new Vuex.Store({
   state: {
     storeName: "Logistick",
-    isConnected: true,
+    isConnected: false,
 
     catalogueItems: [
       {
