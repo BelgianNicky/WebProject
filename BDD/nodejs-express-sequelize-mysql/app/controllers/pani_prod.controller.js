@@ -31,17 +31,63 @@ exports.deleteProduitByPanierId = (req,res) => {
         }
     })
     .then(data => {
+        // delete (update) dans panier
+        Produit.findOne({ where: { id : data.produitId}})
+            .then(produitData=> {
+                Panier.findOne({where:{id:data.panierId}})
+                    .then(panierData=>{
+                        const pani_updated = {
+                            quantite: panierData.quantite-1,
+                            montant_tot: panierData.montant_tot - produitData.prix
+                        };
+                        Panier.update(pani_updated, {
+                            where: {
+                                id: data.panierId
+                            }
+                        })
+                            .then(num => {
+                                if (num == 1) {
+                                res.send({
+                                    message: "Panier was updated successfully."
+                                });
+                                } else {
+                                res.send({
+                                    message: `Cannot update panier with panierId=${data.panierId}. Maybe panierid were not found or req.body is empty!`
+                                });
+                                }
+                            })
+                            .catch(err => {
+                                res.status(500).send({
+                                message: "Error updating panier with panierId=" + data.panierId
+                                });
+                            });
+                    })
+                    .catch(err => {
+                        res.status(500).send({
+                        message:
+                            err.message || "Some error occurred while finding panier with panierId"
+                        });
+                    });
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message:
+                    err.message || "Some error occurred while finding produit with produitId"
+                });
+            });
+
+    // delete (update) dans panier_prod
         if(data.quantite > 1 ){
             const pani_prod_updated = {
-                panierId: panierId,
-                produitId: produitId,
+                panierId: data.panierId,
+                produitId: data.produitId,
                 quantite: data.quantite-1,
                 montant_tot: (data.montant_tot) - ((data.montant_tot)/(data.quantite))
             }
             Pani_prod.update(pani_prod_updated, {
                 where: {
-                    panierId: panierId,
-                    produitId: produitId
+                    panierId: data.panierId,
+                    produitId: data.produitId
                 }
             })
             .then(num => {
@@ -51,21 +97,21 @@ exports.deleteProduitByPanierId = (req,res) => {
                 });
                 } else {
                 res.send({
-                    message: `Cannot update pani_prod with panierId=${panierId} and produitId=${produitId}. Maybe panierId and produitId were not found or req.body is empty!`
+                    message: `Cannot update pani_prod with panierId=${data.panierId} and produitId=${data.produitId}. Maybe panierId and produitId were not found or req.body is empty!`
                 });
                 }
             })
             .catch(err => {
                 res.status(500).send({
-                message: "Error updating pani_prod with panierId=" + panierId
+                message: "Error updating pani_prod with panierId=" + data.panierId
                 });
             });
         }
         else{
             Pani_prod.destroy({
                 where: {
-                    panierId: panierId,
-                    produitId: produitId
+                    panierId: data.panierId,
+                    produitId: data.produitId
                 }
             })
             .then(num => {
@@ -75,20 +121,21 @@ exports.deleteProduitByPanierId = (req,res) => {
                 });
                 } else {
                 res.send({
-                    message: `Cannot delete Produit with panierId=${panierId} and produitId=${produitId}. Maybe panierId and produitId were not found !`
+                    message: `Cannot delete Produit with panierId=${data.panierId} and produitId=${data.produitId}. Maybe panierId and produitId were not found !`
                 });
                 }
             })
             .catch(err => {
                 res.status(500).send({
-                message: "Could not delete Produit with panierId=" + panierId
+                message: "Could not delete Produit with panierId=" + data.panierId
                 });
             });
         }
     })
     .catch(err => {
         res.status(500).send({
-        message: "Could not find pani_prod with panierId=" + panierId
+            message:
+            err.message || "Some error occurred while finding pani_prod with produitId and panierId"
         });
     });
 };
@@ -123,7 +170,7 @@ exports.ajoutPaniProd = (req,res) => {
         })
         .catch(err => {
             res.status(500).send({
-            message: "Error updating pani_prod with panierId=" + panierId
+            message: "Error updating panier with panierId=" + panierId
             });
         });
       })
