@@ -24,9 +24,10 @@ require("./app/routes/categorie.routes")(app);
 require("./app/routes/type.routes")(app);
 require("./app/routes/commande.routes")(app);
 require("./app/routes/produit.routes")(app);
+require("./app/routes/pani_prod.routes")(app);
 
 // set port, listen for requests
-const port = 3000;
+const port = 8080;
 const server = app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
 });

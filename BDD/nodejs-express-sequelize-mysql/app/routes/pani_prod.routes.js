@@ -5,8 +5,9 @@ module.exports = app => {
     var Pani_prod_Controller = require('../controllers/pani_prod.controller')
 
     router.get('/:panierId', Pani_prod_Controller.findAllProduitByPanierId);
-    router.post('/', Pani_prod_Controller.createPaniProd);
+    //router.post('/', Pani_prod_Controller.createPaniProd);
     router.delete('/', Pani_prod_Controller.deleteProduitByPanierId);
+    router.post('/', Pani_prod_Controller.ajoutPaniProd);
 
     app.use('/api/pani_prod',router);
 };
