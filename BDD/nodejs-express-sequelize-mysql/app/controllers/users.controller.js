@@ -4,6 +4,8 @@ const ControllerPanier = require("./panier.controller")
 const Users = db.users;
 const Panier = db.panier;
 const Habitation = db.habitation;
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // crée un utilisateur avec tous ses attributs en lui attribuant au préalable un nouveau panier, et en checkant
 // si l'username et l'email ne sont pas déjà présents dans la DB.
@@ -38,26 +40,29 @@ exports.createUsers = (req, res) => {
                 ControllerPanier.createPanier().then(panier => {
                   const {dataValues} = panier;
 
-                  const users = {
-                    username: req.body.username,
-                    password: req.body.password,
-                    email: req.body.email,
-                    full_name: req.body.full_name,
-                    adresse: req.body.adresse,
-                    panierId: dataValues.id,
-                    habitationId: habitationData[0].id
-                  };
-                  // Création du user
-                  Users.create(users)
-                  .then(data => {
-                    res.send({
-                      boolean : true
-                    });
-                  })
-                  .catch(err => {
-                    res.status(500).send({
-                      message:
-                        err.message || "Some error occurred while creating the User"
+                  bcrypt.hash(req.body.password, saltRounds, function (err,   hash) {
+                    const users = {
+                      username: req.body.username,
+                      password: hash,
+                      email: req.body.email,
+                      full_name: req.body.full_name,
+                      adresse: req.body.adresse,
+                      panierId: dataValues.id,
+                      habitationId: habitationData[0].id
+                    };
+                    // Création du user
+                    Users.create(users)
+                    .then(data => {
+                      res.send({
+                        data : data,
+                        boolean : true
+                      });
+                    })
+                    .catch(err => {
+                      res.status(500).send({
+                        message:
+                          err.message || "Some error occurred while creating the User"
+                      });
                     });
                   });
                 })
@@ -74,26 +79,29 @@ exports.createUsers = (req, res) => {
                   ControllerPanier.createPanier().then(panier => {
                     const {dataValues} = panier;
 
-                    const users = {
-                      username: req.body.username,
-                      password: req.body.password,
-                      email: req.body.email,
-                      full_name: req.body.full_name,
-                      adresse: req.body.adresse,
-                      panierId: dataValues.id,
-                      habitationId: habitationCreatedData.id
-                    };
-                    // Création du user
-                    Users.create(users)
-                    .then(data => {
-                      res.send({
-                        boolean : true
-                      });
-                    })
-                    .catch(err => {
-                      res.status(500).send({
-                        message:
-                          err.message || "Some error occurred while creating the User"
+                    bcrypt.hash(req.body.password, saltRounds, function (err,   hash) {
+                      const users = {
+                        username: req.body.username,
+                        password: hash,
+                        email: req.body.email,
+                        full_name: req.body.full_name,
+                        adresse: req.body.adresse,
+                        panierId: dataValues.id,
+                        habitationId: habitationCreatedData.id
+                      };
+                      // Création du user
+                      Users.create(users)
+                      .then(data => {
+                        res.send({
+                          data : data,
+                          boolean : true
+                        });
+                      })
+                      .catch(err => {
+                        res.status(500).send({
+                          message:
+                            err.message || "Some error occurred while creating the User"
+                        });
                       });
                     });
                   })
@@ -147,7 +155,38 @@ exports.createUsers = (req, res) => {
 
   //test si les informations renseignées par l'utilisateur correspondent à un
   //utilisateur existant dans la DB au niveau du username et du password
- exports.testConnection= (req, res) => {
+
+  exports.testConnection= (req, res) => {
+    const username = req.query.username;
+    const password = req.query.password;
+
+    Users.findOne({
+      where: {
+          username: username
+             }
+    }).then(function (user) {
+        if (!user) {
+          res.send({
+            error: "username doesn't exist",
+            boolean : false
+          });
+        } else {
+          bcrypt.compare(password, user.password, function (err, result) {
+            if (result == true) {
+              res.send({data : user,boolean : true});
+            } else {
+              res.send({
+                error: "Incorrect password",
+                boolean : false
+              });
+            }
+          });
+        }
+    });  
+  };
+
+  // OLD VERSION OF TESTCONNECTION()
+ /*exports.testConnection= (req, res) => {
 
    const username = req.query.username;
    const password = req.query.password;
@@ -175,7 +214,7 @@ exports.createUsers = (req, res) => {
          message: "Error retrieving user"
        });
      });
- };
+ };*/
 
  //supprime un user en fonction de son id
  exports.deleteUser = (req, res) => {
