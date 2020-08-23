@@ -27,36 +27,40 @@
 </template>
 
 <script>
-import UsersDataService from "../services/UsersDataService";
+//import UsersDataService from "../services/UsersDataService";
+import axios from "axios";
+import {  mapActions } from "vuex";
 
 export default {
   data: function(){ return {
     errors: [],
     username: null,
     password: null,
+    co: false,
     };
   },
   methods: {
     checkForm (e) {
-      var dataForm = {"username":this.username, "password":this.password};
-      console.log(dataForm);
-      UsersDataService.testConnection(dataForm)
+      axios
+      .get(`http://localhost:8080/api/users?username=${this.username}&password=${this.password}`)
       .then(res => {
         this.resp = res.data
           if(this.resp.boolean){
             //set id et password into store
-            console.log('co'); 
-            
+            console.log('co');
+            this.co = this.resp.boolean;
+            this.updateIsConnected(this.resp.boolean);
+            this.updateData(this.resp);
           }
-          if(!this.resp.boolean){
+      if(!this.resp.boolean){
             alert("Username ou password erroné.");  
           }
       })
       .catch((err) => console.log(err));
       
       e.preventDefault();
-    }
-
+    },
+    ...mapActions(['updateIsConnected', 'updateData']) 
   }
 }
 </script>

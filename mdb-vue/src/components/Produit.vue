@@ -3,12 +3,7 @@
     <div>
       <div v-for="el in produitElements" v-bind:key="el.id">
         <h6>
-          <b-img
-            v-bind:src="el.image"
-            fluid
-            alt="Responsive image"
-            class="img"
-          ></b-img>
+          <b-img v-bind:src="el.image" fluid alt="Responsive image" class="img"></b-img>
           <b>Nom :</b>
           {{ el.nom }} -
           <b>Description :</b>
@@ -16,11 +11,10 @@
           <b-button
             v-if="isConnected"
             href="#"
-            @click="addPanier"
+            @click="addPanier($store.state.allData.data.panierId,el.id)"
             size="sm"
             variant="primary"
-            >Ajouter au panier</b-button
-          >
+          >Ajouter au panier</b-button>
         </h6>
       </div>
     </div>
@@ -39,9 +33,17 @@ export default {
       produitElements: [],
     };
   },
+  methods: {
+    addPanier(idPanier, idProduit) {
+      console.log("----------");
+      console.log(idPanier);
+      console.log(idProduit);
+    },
+  },
   computed: {
     ...mapState({
       isConnected: "isConnected",
+      allData: "allData",
     }),
   },
   created() {
