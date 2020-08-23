@@ -1,17 +1,17 @@
 import http from "../http-common";
 
 class PanierDataService {
-  /*getAll() {
-    return http.get("/panier");
-  }*/
-
-  get(id) {
-    return http.get(`/panier/${id}`);
+  getAllProduitFromPanier(panierId) {
+    return http.get(`/pani_prod/${panierId}`);
   }
 
-  /*create() {
-    return http.get("/categorie");
-  }*/
+  addProdToPanier(data) {
+    return http.post(`/pani_prod`,data);
+  }
+
+  deleteProdFromPanier(data) {
+    return http.delete(`/pani_prod`,data);
+  }
 
   /*update(id, data) {
     return http.put(`/tutorials/${id}`, data);

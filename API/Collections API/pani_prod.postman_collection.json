@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "da039be6-db64-4ce6-bb10-519dc7539c3d",
+		"name": "pani_prod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/pani_prod DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8f517675-fbd7-4597-a027-ed0bde0102e2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Le produit (id : 1) a été mis à jour dans le panier (id : 1) ET  le panier (id : 1) a été mis à jour\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"Pani_prod was updated successfully.\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Le produit (id : 1) a été supprimé dans le panier (id : 1) ET  le panier (id : 1) a été mis à jour\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"Produit was deleted successfully from Panier!\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"panierId\" : 1,\r\n    \"produitId\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pani_prod",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pani_prod"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/pani_prod GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0729237e-d7be-4ca8-a6fa-a5365623904c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tous les produits lié au panier possédant l'id 1 sont bien récupérés\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].panierId).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"panierId\" : 1,\r\n    \"produitId\" : 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pani_prod/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pani_prod",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

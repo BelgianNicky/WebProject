@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "ae19e59b-d4d5-4a2e-8885-b47ab950610e",
+		"name": "users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/users/:id GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3508266b-9630-4d90-b141-ae343afb641d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"L'utilisateur avec l'id 1 est bien récupéré\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(1);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/ POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "da318dfc-ae94-488a-9b9d-ea2dab3b45e2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"L'utilisateur Virginie est créé et sauvegardé correctement\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.username).to.eql(\"Virginie\");\r",
+							"});\r",
+							"pm.test(\"L'utilisateur n'est pas créé car le username existe déjà\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.error).to.eql(\"username already exists\");\r",
+							"});\r",
+							"pm.test(\"L'utilisateur n'est pas créé car l'email existe déjà\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.error).to.eql(\"email already exists\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Virginie\",\r\n    \"password\": \"virgnie123\",\r\n    \"email\": \"Virginie@hotmail.com\",\r\n    \"full_name\": \"virginie lefebvre\",\r\n    \"adresse\": \"Rue des coquelicots\",\r\n    \"ville\": \"bruxelles\",\r\n    \"code_postal\": \"1300\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "08f31c17-5f52-4edb-9877-b7320da47ac2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Identifiants corrects (username : Mathias, mdp : Mathias123)\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.boolean).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Username doesn't exist\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.error).to.eql(\"Username doesn't exist\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Incorrect password\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.error).to.eql(\"Incorrect password\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users?username=Mathias&password=Mathias123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Mathias"
+						},
+						{
+							"key": "password",
+							"value": "Mathias123"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
