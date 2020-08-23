@@ -29,12 +29,14 @@
 <script>
 //import UsersDataService from "../services/UsersDataService";
 import axios from "axios";
+import {  mapActions } from "vuex";
 
 export default {
   data: function(){ return {
     errors: [],
     username: null,
     password: null,
+    co: false,
     };
   },
   methods: {
@@ -46,7 +48,9 @@ export default {
           if(this.resp.boolean){
             //set id et password into store
             console.log('co');
-            console.log(this.resp.data); 
+            this.co = this.resp.boolean;
+            this.updateIsConnected(this.resp.boolean);
+            this.updateData(this.resp);
           }
       if(!this.resp.boolean){
             alert("Username ou password erroné.");  
@@ -55,8 +59,8 @@ export default {
       .catch((err) => console.log(err));
       
       e.preventDefault();
-    }
-
+    },
+    ...mapActions(['updateIsConnected', 'updateData']) 
   }
 }
 </script>
