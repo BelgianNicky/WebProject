@@ -13,7 +13,7 @@
         >
           <b-card-text>Découvrez notre gamme de services informatiques et les derniers accessoires multimédias conseillés par nos spécialistes</b-card-text>
 
-          <b-button href="#" variant="primary">Catalogue</b-button>
+          <b-button href="#" to="/catalogue" variant="primary">Catalogue</b-button>
         </b-card>
         <b-card
           title="PC sur mesure"
@@ -25,7 +25,7 @@
         >
           <b-card-text>Vous trouverez également sur notre site tous les éléments et conseils permettant de créer un ordinateur sur mesure qui correspond à vos besoins et votre budget.</b-card-text>
 
-          <b-button href="#" variant="primary">Créez votre PC</b-button>
+          <b-button href="#" to="/config" variant="primary">Créez votre PC</b-button>
         </b-card>
       </b-card-group>
     </div>

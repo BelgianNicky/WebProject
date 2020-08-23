@@ -167,7 +167,7 @@ exports.createUsers = (req, res) => {
     }).then(function (user) {
         if (!user) {
           res.send({
-            error: "username doesn't exist",
+            error: "Username doesn't exist",
             boolean : false
           });
         } else {

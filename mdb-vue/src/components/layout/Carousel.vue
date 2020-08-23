@@ -27,7 +27,7 @@
 
         <b-carousel-slide
         caption="Offre Chaises gamings"
-        text="Une chaise gaming achetée, 5 offertes"
+        text="2 chaises gaming achetées, 1 offerte"
         :img-src="require('@/assets/Carousel_6.jpg')"
         ></b-carousel-slide>
         

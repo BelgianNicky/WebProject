@@ -2,12 +2,12 @@
   <div class="container">
     <b-card-group deck>
       <b-card
-        title="Grassmann"
-        :img-src="require('@/assets/grassmann.jpg')"
+        title="Mathias Gassmann"
+        :img-src="require('@/assets/mathias.png')"
         img-alt="Mathias"
         img-top
       >
-        <b-card-text>Célèbre athlète dans le monde de l'eSport. Connu pour sa participation aux University eSport Masters</b-card-text>
+        <b-card-text>Étudiant à l'EPHEC en Technologie de l'informatique. Gérant de <b>Logistick</b> et développeur web.</b-card-text>
       </b-card>
 
       <b-card
@@ -25,7 +25,7 @@
         img-alt="Maximilien"
         img-top
       >
-        <b-card-text>Beau gosse des îles</b-card-text>
+        <b-card-text>Étudiant à l'EPHEC en Technologie de l'Informatique</b-card-text>
       </b-card>
     </b-card-group>
   </div>

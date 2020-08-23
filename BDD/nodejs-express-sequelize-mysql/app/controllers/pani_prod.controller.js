@@ -117,7 +117,7 @@ exports.deleteProduitByPanierId = (req,res) => {
             .then(num => {
                 if (num == 1) {
                 res.send({
-                    message: "Produit was deleted successfully!"
+                    message: "Produit was deleted successfully from Panier!"
                 });
                 } else {
                 res.send({
