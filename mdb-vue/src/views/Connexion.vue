@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import UsersDataService from "../services/UsersDataService";
+//import UsersDataService from "../services/UsersDataService";
+import axios from "axios";
 
 export default {
   data: function(){ return {
@@ -38,15 +39,15 @@ export default {
   },
   methods: {
     checkForm (e) {
-      var dataForm = {"username":this.username, "password":this.password};
-      console.log(dataForm);
-      UsersDataService.testConnection(dataForm)
+      
+      axios
+      .get(`http://localhost:8080/api/users?username=${this.username}&password=${this.password}`)
       .then(res => {
         this.resp = res.data
           if(this.resp.boolean){
             //set id et password into store
-            console.log('co'); 
-            
+            console.log('co');
+            console.log(this.resp.data); 
           }
           if(!this.resp.boolean){
             alert("Username ou password erroné.");  
