@@ -38,8 +38,8 @@ db.panier.hasOne(db.users,{ as: "users",foreignKey:'panierId' });
 db.users.belongsTo(db.panier, {foreignKey:'panierId'});
 
 //many to many entre panier et produit
-db.panier.belongsToMany(db.produit, { through: db.pani_prod});
-db.produit.belongsToMany(db.panier, { through: db.pani_prod});
+db.panier.belongsToMany(db.produit, { through: db.pani_prod });
+db.produit.belongsToMany(db.panier, { through: db.pani_prod });
 
 //one to many entre produit et Type
 db.type.hasMany(db.produit, { as: "produit" });
