@@ -5,8 +5,8 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081",
-  //origin: "http://logistick.be"
+  //origin: "http://localhost:8081",
+  origin: "http://logistick.be"
 };
 
 app.use(cors(corsOptions));
@@ -27,27 +27,20 @@ require("./app/routes/produit.routes")(app);
 require("./app/routes/pani_prod.routes")(app);
 
 // set port, listen for requests
-const port = 8080;
+const port = 3000;
 const server = app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
 });
 
+// DEPLOIEMENT DE LA BASE DE DONNEES AVEC LES PRODUITS PRESENTS DANS LE MAGASIN
+
 /*const db = require("./app/models/index");
-const controller = require("./app/controllers/panier.controller");
 const dbData = require("./dataDb");
 
 const run = async () => {
-  
   dbData.launchDataDb();
-
-  const users1 = await controller.createUsers(1,1, {
-    username: "mathiaslaclasse",
-    password: "yololasticot",
-    email: "mat@yopmail.com",
-    full_name: "mathias gassmann",
-    adresse:"rue de la chaise 4 "
-  });
 };
+
 db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
   run();

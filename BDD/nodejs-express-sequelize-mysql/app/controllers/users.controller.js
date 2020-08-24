@@ -54,7 +54,6 @@ exports.createUsers = (req, res) => {
                     Users.create(users)
                     .then(data => {
                       res.send({
-                        data : data,
                         boolean : true
                       });
                     })
@@ -93,7 +92,6 @@ exports.createUsers = (req, res) => {
                       Users.create(users)
                       .then(data => {
                         res.send({
-                          data : data,
                           boolean : true
                         });
                       })

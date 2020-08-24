@@ -9,8 +9,8 @@ class PanierDataService {
     return http.post(`/pani_prod`,data);
   }
 
-  deleteProdFromPanier(data) {
-    return http.delete(`/pani_prod`,data);
+  deleteProdFromPanier(panierId, produitId) {
+    return http.delete(`/pani_prod?panierId=${panierId}&produitId=${produitId}`);
   }
 
   /*update(id, data) {

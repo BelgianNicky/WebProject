@@ -27,8 +27,8 @@ exports.findAllProduitByPanierId = (req,res) => {
 
 //supprime un produit lié à un panier de la table pani_prod sur base d'un id de panier et d'un id de produit
 exports.deleteProduitByPanierId = (req,res) => {
-    const panierId = req.body.panierId
-    const produitId = req.body.produitId
+    const panierId = req.query.panierId
+    const produitId = req.query.produitId
 
     Pani_prod.findOne({
         where: {
