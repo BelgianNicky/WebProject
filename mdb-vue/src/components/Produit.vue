@@ -24,6 +24,7 @@
 <script>
 import ProduitDataService from "../services/ProduitDataService";
 import { mapState } from "vuex";
+import axios from "axios";
 
 export default {
   name: "Produit",
@@ -34,10 +35,16 @@ export default {
     };
   },
   methods: {
-    addPanier(idPanier, idProduit) {
-      console.log("----------");
-      console.log(idPanier);
-      console.log(idProduit);
+    addPanier(panierId, produitId) {
+      this.dataForm = { panierId: panierId, produitId: produitId };
+
+      axios
+        .post("http://localhost:8080/api/pani_prod", this.dataForm)
+        .then((res) => {
+          console.log("succes ajout");
+          alert(res.data.message);
+        })
+        .catch((err) => console.log(err));
     },
   },
   computed: {
