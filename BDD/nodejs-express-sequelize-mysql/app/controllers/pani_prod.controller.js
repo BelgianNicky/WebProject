@@ -3,11 +3,17 @@ const Pani_prod= db.pani_prod;
 const Produit= db.produit;
 const Panier= db.panier;
 
+
 //récupère tous les produits correspondant à un certain panierId
 exports.findAllProduitByPanierId = (req,res) => {
     const panierId = req.params.panierId
 
-    Pani_prod.findAll({ where: { panierId : panierId }})
+    Panier.findAll({ 
+        where: { id : panierId }, 
+        include : [{
+            model: Produit
+        }]
+    })
     .then(data => {
         res.send(data);
     })
