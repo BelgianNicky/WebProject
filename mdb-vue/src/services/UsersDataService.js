@@ -9,8 +9,8 @@ class UsersDataService {
     return http.get(`/users/${id}`);
   }
 
-  testConnection(data) {
-    return http.get("/users", data);
+  testConnection(username, password) {
+    return http.get(`/users?username=${username}&password=${password}`);
   }
 
   create(data) {
