@@ -14,15 +14,15 @@
           <mdb-btn outline="white" size="sm" class="my-0" type="submit">Search</mdb-btn>
         </mdb-form-inline>
         <mdb-nav-item href="#" to="/inscription" v-if="!isConnected">Inscription</mdb-nav-item>
-        <mdb-nav-item href="#" to="/connexion" v-if="!isConnected">Connexion</mdb-nav-item>
-        <mdb-nav-item href="#" to="/" v-if="isConnected">Se déconnecter</mdb-nav-item>
+        <mdb-nav-item href="#" to="/connexion" v-if="!isConnected" @click="dc">Connexion</mdb-nav-item>
+        <mdb-nav-item href="#" to="/" v-if="isConnected" @click="dc">Se déconnecter</mdb-nav-item>
       </mdb-navbar-nav>
     </mdb-navbar-toggler>
   </mdb-navbar>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import {
   mdbNavbar,
   mdbNavbarBrand,
@@ -44,6 +44,12 @@ export default {
     mdbInput,
     mdbBtn,
     mdbFormInline,
+  },
+  methods: {
+    dc() {
+      this.updateIsConnected(false);
+    },
+    ...mapActions(["updateIsConnected"]),
   },
   computed: {
     ...mapState({

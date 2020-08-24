@@ -27,8 +27,8 @@
 </template>
 
 <script>
-//import UsersDataService from "../services/UsersDataService";
-import axios from "axios";
+import UsersDataService from "../services/UsersDataService";
+//import axios from "axios";
 import {  mapActions } from "vuex";
 
 export default {
@@ -41,8 +41,13 @@ export default {
   },
   methods: {
     checkForm (e) {
+
+      /*
       axios
       .get(`http://localhost:8080/api/users?username=${this.username}&password=${this.password}`)
+
+      */
+      UsersDataService.testConnection(this.username, this.password)
       .then(res => {
         this.resp = res.data
           if(this.resp.boolean){
