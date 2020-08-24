@@ -23,6 +23,8 @@
 
 <script>
 import ProduitDataService from "../services/ProduitDataService";
+//import PaniProdDataService from "../services/PaniProdDataService";
+import axios from "axios";
 import { mapState } from "vuex";
 
 export default {
@@ -34,10 +36,22 @@ export default {
     };
   },
   methods: {
-    addPanier(idPanier, idProduit) {
+    addPanier(panierId, produitId) {
       console.log("----------");
-      console.log(idPanier);
-      console.log(idProduit);
+      console.log(panierId);
+      console.log(produitId);
+      this.dataForm = {
+        panierId: "7",
+        produitId: "2",
+      };
+
+      axios
+        .post("http://localhost:8080/api/pani_prod", this.dataForm)
+        .then((res) => {
+          console.log("sucess ajout");
+          console.log(res);
+        })
+        .catch((err) => console.log(err));
     },
   },
   computed: {
@@ -47,9 +61,6 @@ export default {
     }),
   },
   created() {
-    console.log("in created produit");
-    console.log(this.$props.el);
-
     ProduitDataService.getProduitsFromType(this.$props.el)
       .then((res) => (this.produitElements = res.data))
       .catch((err) => console.log(err));
