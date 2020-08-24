@@ -72,28 +72,16 @@
 							"\r",
 							"pm.test(\"Tous les produits lié au panier possédant l'id 1 sont bien récupérés\", function(){\r",
 							"    const jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData[0].panierId).to.eql(1);\r",
+							"    pm.expect(jsonData[0].id).to.eql(1);\r",
 							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"panierId\" : 1,\r\n    \"produitId\" : 3\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://localhost:8080/api/pani_prod/1",
 					"protocol": "http",
