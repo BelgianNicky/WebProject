@@ -1,8 +1,7 @@
 <template>
   <b-container fluid>
     <div class="panier">
-      <h1>Votre Panier : {{panierElements[0].montant_tot}} €</h1>
-      <b-button variant="info">Finaliser la commande</b-button>
+      <h1>Votre Panier : {{this.panierElements[0].montant_tot}} €</h1>
     </div>
     <div class="center">
       <div v-for="produit in panierElements[0].produits" v-bind:key="produit.id" class="panierItem">
@@ -24,6 +23,9 @@
         </b-card>
       </div>
     </div>
+    <b-button variant="info" @click="payer">
+      <b>Finaliser la commande et Payer</b>
+    </b-button>
   </b-container>
 </template>
 
@@ -43,24 +45,23 @@ export default {
     };
   },
   methods: {
+    payer() {
+      this.$router.push("/payer");
+    },
     removePanier(panierId, produitId) {
-      /*
-      this.dataForm = { panierId: panierId, produitId: produitId };
-      console.log(this.dataForm);
-      */
-
-      /*
-      axios
-        .delete(
-          `http://localhost:8080/api/pani_prod?panierId=${panierId}&produitId=${produitId}`
-        )
-        */
-
       PaniProdDataService.deleteProdFromPanier(panierId, produitId)
         .then((res) => {
           console.log("Objet enlevé du panier");
-          alert(res.data.message);
-          window.location.reload();
+          console.log(res);
+
+          axios
+            .get(
+              `http://localhost:8080/api/pani_prod/${this.dataStore.data.panierId}`
+            )
+            .then((res) => {
+              this.panierElements = res.data;
+            })
+            .catch((err) => console.log(err));
         })
         .catch((err) => console.log(err));
     },

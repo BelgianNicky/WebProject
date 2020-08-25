@@ -5,7 +5,8 @@
         <h6>
           <b-img v-bind:src="el.image" fluid alt="Responsive image" class="img"></b-img>
           <b>Nom :</b>
-          {{ el.nom }} -
+          {{ el.nom }} |
+          <b>Prix : {{el.prix}} € |</b>
           <b>Description :</b>
           {{ el.description }}
           <b-button
@@ -41,7 +42,6 @@ export default {
       axios
         .post("http://localhost:8080/api/pani_prod", this.dataForm)
         .then((res) => {
-          console.log("succes ajout");
           alert(res.data.message);
         })
         .catch((err) => console.log(err));
@@ -54,9 +54,6 @@ export default {
     }),
   },
   created() {
-    console.log("in created produit");
-    console.log(this.$props.el);
-
     ProduitDataService.getProduitsFromType(this.$props.el)
       .then((res) => (this.produitElements = res.data))
       .catch((err) => console.log(err));

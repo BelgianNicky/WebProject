@@ -69,8 +69,6 @@ export default {
   },
 
   created() {
-    console.log("in created type");
-    console.log(this.$props.el);
     TypeDataService.getTypeFromCategorie(this.$props.el)
       .then((res) => (this.typeElements = res.data))
       .catch((err) => console.log(err));
