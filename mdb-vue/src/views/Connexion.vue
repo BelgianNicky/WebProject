@@ -52,10 +52,10 @@ export default {
         this.resp = res.data
           if(this.resp.boolean){
             //set id et password into store
-            console.log('co');
             this.co = this.resp.boolean;
             this.updateIsConnected(this.resp.boolean);
             this.updateData(this.resp);
+            this.$router.push('panier');
           }
       if(!this.resp.boolean){
             alert("Username ou password erroné.");  

@@ -4,7 +4,6 @@
     <mdb-navbar-toggler>
       <mdb-navbar-nav>
         <mdb-nav-item href="#" to="/" active>Accueil</mdb-nav-item>
-        <mdb-nav-item href="#" to="/config">Config</mdb-nav-item>
         <mdb-nav-item href="#" to="/catalogue">Catalogue</mdb-nav-item>
         <mdb-nav-item href="#" to="/panier" v-if="isConnected">Panier</mdb-nav-item>
       </mdb-navbar-nav>

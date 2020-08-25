@@ -117,17 +117,12 @@ export default {
       .then(res => {
         this.resp = res.data
           if(this.resp.boolean){
-            console.log('creation compte reussi');
-            console.log(this.resp.boolean);
-            console.log(this.resp);
             alert("Compte créé!");
             
           }
           if(!this.resp.boolean){
-            console.log('creation compte raté');
             console.log(this.resp.boolean);
             console.log(this.resp.error);
-            console.log(this.resp);    
           }
       })
       .catch((err) => console.log(err));

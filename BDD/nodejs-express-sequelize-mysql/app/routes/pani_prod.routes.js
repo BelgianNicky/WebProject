@@ -1,13 +1,13 @@
-module.exports = app => {
-    var express = require('express');
-    var router = express.Router();
+module.exports = (app) => {
+  var express = require("express");
+  var router = express.Router();
 
-    var Pani_prod_Controller = require('../controllers/pani_prod.controller')
+  var Pani_prod_Controller = require("../controllers/pani_prod.controller");
 
-    router.get('/:panierId', Pani_prod_Controller.findAllProduitByPanierId);
-    //router.post('/', Pani_prod_Controller.createPaniProd);
-    router.delete('/', Pani_prod_Controller.deleteProduitByPanierId);
-    router.post('/', Pani_prod_Controller.ajoutPaniProd);
+  router.get("/:panierId", Pani_prod_Controller.findAllProduitByPanierId);
+  //router.post('/', Pani_prod_Controller.createPaniProd);
+  router.delete("/", Pani_prod_Controller.deleteProduitByPanierId);
+  router.post("/", Pani_prod_Controller.ajoutPaniProd);
 
-    app.use('/api/pani_prod',router);
+  app.use("/api/pani_prod", router);
 };

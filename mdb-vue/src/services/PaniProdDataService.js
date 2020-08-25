@@ -6,11 +6,13 @@ class PanierDataService {
   }
 
   addProdToPanier(data) {
-    return http.post(`/pani_prod`,data);
+    return http.post(`/pani_prod`, data);
   }
 
   deleteProdFromPanier(panierId, produitId) {
-    return http.delete(`/pani_prod?panierId=${panierId}&produitId=${produitId}`);
+    return http.delete(
+      `/pani_prod?panierId=${panierId}&produitId=${produitId}`
+    );
   }
 
   /*update(id, data) {
