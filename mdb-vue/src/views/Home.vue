@@ -81,7 +81,7 @@ export default {
 
 /* Polices */
 .textItem {
-  background: url(http://ecard.enter-media.org/upload/iblock/cf4/cf401a38b3c0190e91e68729a24795b6.jpg)
+  background: url(https://ecard.enter-media.org/upload/iblock/cf4/cf401a38b3c0190e91e68729a24795b6.jpg)
     repeat;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -94,7 +94,7 @@ export default {
 
 .titre-sections {
   margin-top: 100px;
-  background: url(http://ecard.enter-media.org/upload/iblock/cf4/cf401a38b3c0190e91e68729a24795b6.jpg)
+  background: url(https://ecard.enter-media.org/upload/iblock/cf4/cf401a38b3c0190e91e68729a24795b6.jpg)
     repeat;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
