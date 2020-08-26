@@ -23,6 +23,9 @@ export default new Vuex.Store({
     UPDATE_DATA(state, allData) {
       state.allData = allData;
     },
+    UPDATE_ADRESSE(state, adresse) {
+      state.allData.data.adresse = adresse;
+    },
   },
   actions: {
     //nom sera remplacé par ID (du type) pour accéder aux produits correspondant à un certain type
@@ -34,6 +37,9 @@ export default new Vuex.Store({
     },
     updateData({ commit }, allData) {
       commit("UPDATE_DATA", allData);
+    },
+    updateAdresse({ commit }, adresse) {
+      commit("UPDATE_ADRESSE", adresse);
     },
   },
   modules: {},

@@ -13,8 +13,8 @@ class UsersDataService {
     return http.get(`/users?username=${username}&password=${password}`);
   }
 
-  updateUser(data) {
-    return http.put("/users", data);
+  updateUser(id, data) {
+    return http.put(`/users/${id}`, data);
   }
 
   create(data) {
