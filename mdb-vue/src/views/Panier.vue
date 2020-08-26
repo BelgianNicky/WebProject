@@ -8,6 +8,7 @@
         <b-card
           :img-src="produit.image"
           :img-alt="produit.image.alt"
+          img-left
           :title="produit.nom"
           class="img"
         >
