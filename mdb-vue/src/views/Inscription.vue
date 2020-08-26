@@ -5,9 +5,8 @@
         <!-- method="post" --->
         <br />
 
-        <p class="h4 text-center mb-4">Inscription</p>
+        <p class="h4 text-center mb-4">{{titre}}</p>
             <p v-if="errors.length">
-              <b>Problème lors de l'inscription:</b>
                 <ul>
                   <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
               </ul>
@@ -43,7 +42,7 @@
           name="confirmPwd"
         />
         <div class="text-center mt-4">
-          <button class="btn btn-unique" type="submit">S'inscrire !</button>
+          <button id="sendForm" class="btn btn-unique" type="submit">S'inscrire !</button>
         </div>
       </form>
 
@@ -57,6 +56,7 @@ import UsersDataService from "../services/UsersDataService";
 
 export default {
   data: function(){ return {
+    titre: "Inscription",
     errors: [],
     username: null,
     full_name: null,
@@ -109,7 +109,9 @@ export default {
           this.errors.push("Mots de passes différents");
           this.Ttrue = false;
         }
-      
+        if(!this.Ttrue){
+          this.titre = "Probleme lors de l'inscription";
+        }
 
       if (this.Ttrue) {
       this.dataForm = {username:this.username,full_name:this.full_name, adresse:this.adresse, ville:this.ville, code_postal:this.code_postal, email:this.email, password:this.pwd};
