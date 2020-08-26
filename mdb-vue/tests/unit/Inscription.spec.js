@@ -110,6 +110,7 @@ describe("Inscription.vue", () => {
     wrapper.find("#sendForm").trigger("submit");
     expect(wrapper.vm.titre).toBe("Probleme lors de l'inscription");
   });
+
   it("It tries to send the form with no email", () => {
     const wrapper = shallowMount(Inscription);
     expect(wrapper.vm.titre).toBe("Inscription");
@@ -126,6 +127,7 @@ describe("Inscription.vue", () => {
     wrapper.find("#sendForm").trigger("submit");
     expect(wrapper.vm.titre).toBe("Probleme lors de l'inscription");
   });
+
   it("It tries to send the form with a wrong email", () => {
     const wrapper = shallowMount(Inscription);
     expect(wrapper.vm.titre).toBe("Inscription");
