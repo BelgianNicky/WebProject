@@ -7,10 +7,12 @@
 
         <p class="h4 text-center mb-4">Se connecter</p>
             <p v-if="errors.length">
+              
               <b>Problème lors de la connexion.</b>
                 <ul>
                   <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
               </ul>
+              
           </p>
         <label for="username" class="grey-text">Username</label>
         <input type="username" id="username" class="form-control" v-model="username" name="username" />
