@@ -3,12 +3,14 @@
     <div class="panier">
       <h1>Votre Panier : {{this.panierElements[0].montant_tot}} €</h1>
     </div>
+    <b-button variant="info" @click="payer">
+      <b>Finaliser la commande et Payer</b>
+    </b-button>
     <div class="center">
       <div v-for="produit in panierElements[0].produits" v-bind:key="produit.id" class="panierItem">
         <b-card
           :img-src="produit.image"
           :img-alt="produit.image.alt"
-          img-left
           :title="produit.nom"
           class="img"
         >
@@ -24,9 +26,6 @@
         </b-card>
       </div>
     </div>
-    <b-button variant="info" @click="payer">
-      <b>Finaliser la commande et Payer</b>
-    </b-button>
   </b-container>
 </template>
 

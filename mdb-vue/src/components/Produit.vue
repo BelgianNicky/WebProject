@@ -2,7 +2,7 @@
   <b-container fluid>
     <div>
       <div v-for="el in produitElements" v-bind:key="el.id">
-        <h6>
+        <h6 class="produit">
           <b-img v-bind:src="el.image" fluid alt="Responsive image" class="img"></b-img>
           <b>Nom :</b>
           {{ el.nom }} |
@@ -64,5 +64,9 @@ export default {
 <style scoped>
 .img {
   max-height: 100px;
+}
+
+.produit {
+  float: left;
 }
 </style>
