@@ -81,27 +81,12 @@ export default {
 
 /* Polices */
 .textItem {
-  background: url(https://ecard.enter-media.org/upload/iblock/cf4/cf401a38b3c0190e91e68729a24795b6.jpg)
-    repeat;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-position: 50% 50%;
-  position: relative;
-  line-height: normal;
   font-size: 1rem;
-  background-color: #fff;
+  color: black;
 }
 
 .titre-sections {
-  margin-top: 100px;
-  background: url(https://ecard.enter-media.org/upload/iblock/cf4/cf401a38b3c0190e91e68729a24795b6.jpg)
-    repeat;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-position: 50% 50%;
-  position: relative;
-  line-height: normal;
   font-size: 3rem;
-  background-color: #fff;
+  color: black;
 }
 </style>
