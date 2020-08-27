@@ -7,7 +7,6 @@
           :img-src="require('@/assets/gamme_de_produits.png')"
           img-alt="Image"
           img-top
-          tag="Gamme_de_produits"
           class="mb"
           id="gamme_produits"
         >
@@ -20,7 +19,6 @@
           :img-src="require('@/assets/pc_sur_mesure.png')"
           img-alt="Image"
           img-top
-          tag="PC_Sur_Mesure"
           class="mb"
         >
           <b-card-text>Vous trouverez également sur notre site tous les éléments et conseils permettant de créer un ordinateur sur mesure qui correspond à vos besoins et votre budget.</b-card-text>
