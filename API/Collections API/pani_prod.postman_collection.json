@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "da039be6-db64-4ce6-bb10-519dc7539c3d",
+		"_postman_id": "c86cacc8-3bed-40bd-b3b2-5dd2cc505e17",
 		"name": "pani_prod",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8f517675-fbd7-4597-a027-ed0bde0102e2",
+						"id": "68d2c586-fea6-43b4-8862-ade0539b5214",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -64,7 +64,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0729237e-d7be-4ca8-a6fa-a5365623904c",
+						"id": "e57d5ed3-a6ff-459f-a328-42f481e0cc3a",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -93,6 +93,53 @@
 						"api",
 						"pani_prod",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://51.210.149.38:3000/api/pani_prod/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8e57c4f-33d5-4c26-a77e-b85360eeb964",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"panierId\":\"1\",\r\n    \"produitId\":\"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://51.210.149.38:3000/api/pani_prod/",
+					"protocol": "http",
+					"host": [
+						"51",
+						"210",
+						"149",
+						"38"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pani_prod",
+						""
 					]
 				}
 			},
