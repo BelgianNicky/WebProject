@@ -9,8 +9,8 @@
               v-bind:img-src="el.image"
               img-alt="Image"
               img-left
-              img-width="30%"
-              img-height="40%"
+              img-width="20%"
+              img-height="30%"
               tag="article"
               class="cardType"
             >
@@ -21,14 +21,7 @@
                 <h5>Cliquez sur le bouton ci-dessous!</h5>
               </b-card-text>
               <div class="fill">.</div>
-              <div class="fill">.</div>
-              <div class="fill">.</div>
-              <div class="fill">.</div>
-              <div class="fill">.</div>
-              <div class="fill">.</div>
-              <div class="fill">.</div>
-              <div class="fill">.</div>
-              <div class="fill">.</div>
+
               <b-button
                 block
                 v-b-toggle="'accordion-' + el.name"
@@ -77,11 +70,9 @@ export default {
 </script>
 
 <style scoped>
-/*
-.cardType {
-  max-width: 100%;
+.card-title {
+  font-size: 40px;
 }
-*/
 
 .btnType {
   bottom: 0;

@@ -57,7 +57,7 @@ export default {
             this.co = this.resp.boolean;
             this.updateIsConnected(this.resp.boolean);
             this.updateData(this.resp);
-            this.$router.push('panier');
+            this.$router.push('/');
           }
       if(!this.resp.boolean){
             alert("Username ou password erroné.");  
