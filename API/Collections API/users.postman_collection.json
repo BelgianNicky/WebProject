@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ae19e59b-d4d5-4a2e-8885-b47ab950610e",
+		"_postman_id": "a5e7099b-6031-4ed0-a763-c3bb2cbf5b74",
 		"name": "users",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3508266b-9630-4d90-b141-ae343afb641d",
+						"id": "e2ea58bf-dda7-4500-8cbf-5e2ce4db7c35",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -52,7 +52,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "da318dfc-ae94-488a-9b9d-ea2dab3b45e2",
+						"id": "e092730c-6194-412a-8c78-7d2b60afebcf",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -107,7 +107,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "08f31c17-5f52-4edb-9877-b7320da47ac2",
+						"id": "6aa664db-b6db-4e0f-a9c6-270f8654f54b",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -166,6 +166,54 @@
 							"key": "password",
 							"value": "Mathias123"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/users/3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ca6d5c60-7427-4692-8e44-460e4031cb19",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"User was updated successfully.\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.error).to.eql(\"User was updated successfully.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"MonNouveauMail@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"3"
 					]
 				}
 			},
