@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "3f5fb77e-7489-4af8-a68e-2b2a2443d467",
+		"name": "type",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8e57c4f-33d5-4c26-a77e-b85360eeb964",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prix\":\"61\",\r\n    \"stock\":\"4\",\r\n    \"nom\":\"APC SurgeProtector PL8VT3-DE 8 Sockets Powerline retail\",\r\n    \"description\":\"Référence Apc : PL8VT3-DE\",\r\n    \"typeId\":\"11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"type"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
