@@ -6,7 +6,7 @@ const app = express();
 
 var corsOptions = {
   //origin: "http://localhost:8081",
-  origin: "https://logistick.be"
+  origin: "http://logistick.be"
 };
 
 app.use(cors(corsOptions));
