@@ -5,7 +5,6 @@
         <b-card
           variant="success"
           title="Horaires d'ouverture"
-          tag="horaires"
           class="mb"
           :img-src="require('@/assets/ouvert.png')"
         >
@@ -14,7 +13,7 @@
             <span>Dimanche</span>Fermé
           </b-card-text>
         </b-card>
-        <b-card title="Adresse" tag="adresse" class="mb" :img-src="require('@/assets/map.png')">
+        <b-card title="Adresse" class="mb" :img-src="require('@/assets/map.png')">
           <b-card-text class="adresse">
             Venelle des merisiers 46
             <br />1301 Bierges
