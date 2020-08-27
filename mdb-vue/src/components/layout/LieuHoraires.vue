@@ -42,8 +42,13 @@
 </template>
 
 <script>
+import { BCard } from 'bootstrap-vue'
+
 export default {
   name: "LieuHoraires",
+  components: {
+    BCard
+  }
 };
 </script>
 
