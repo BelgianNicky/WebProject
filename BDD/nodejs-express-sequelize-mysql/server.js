@@ -29,7 +29,7 @@ require("./app/routes/pani_prod.routes")(app);
 // set port, listen for requests
 const port = 3000;
 const server = app.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}`);
+  console.log(`Listening on http://51.210.149.38:${port}`);
 });
 
 // DEPLOIEMENT DE LA BASE DE DONNEES AVEC LES PRODUITS PRESENTS DANS LE MAGASIN
