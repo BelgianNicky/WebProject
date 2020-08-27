@@ -48,9 +48,11 @@ export default {
     },
     methods: {
       onSlideStart(slide) {
+          console.log(slide);
         this.sliding = true
       },
       onSlideEnd(slide) {
+          console.log(slide);
         this.sliding = false
       }
     }
