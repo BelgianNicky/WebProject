@@ -32,7 +32,7 @@
 <script>
 import PaniProdDataService from "../services/PaniProdDataService";
 import { mapState } from "vuex";
-import axios from "axios";
+//import axios from "axios";
 
 export default {
   name: "Panier",
@@ -54,10 +54,15 @@ export default {
           console.log("Objet enlevé du panier");
           console.log(res);
 
+          /*
           axios
             .get(
               `http://localhost:8080/api/pani_prod/${this.dataStore.data.panierId}`
             )
+        */
+          PaniProdDataService.getAllProduitFromPanier(
+            this.dataStore.data.panierId
+          )
             .then((res) => {
               this.panierElements = res.data;
             })
@@ -75,10 +80,13 @@ export default {
   mounted() {
     this.dataStore = this.$store.state.allData;
 
+    /*
     axios
       .get(
         `http://localhost:8080/api/pani_prod/${this.dataStore.data.panierId}`
       )
+      */
+    PaniProdDataService.getAllProduitFromPanier(this.dataStore.data.panierId)
       .then((res) => {
         console.log(res);
         this.panierElements = res.data;

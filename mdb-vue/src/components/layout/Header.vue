@@ -8,10 +8,6 @@
         <mdb-nav-item href="#" to="/panier" v-if="isConnected">Panier</mdb-nav-item>
       </mdb-navbar-nav>
       <mdb-navbar-nav right>
-        <mdb-form-inline right>
-          <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-          <mdb-btn outline="white" size="sm" class="my-0" type="submit">Search</mdb-btn>
-        </mdb-form-inline>
         <mdb-nav-item href="#" to="/inscription" v-if="!isConnected">Inscription</mdb-nav-item>
         <mdb-nav-item href="#" to="/connexion" v-if="!isConnected" @click="dc">Connexion</mdb-nav-item>
         <mdb-nav-item href="#" to="/" v-if="isConnected" @click="dc">Se déconnecter</mdb-nav-item>
@@ -28,9 +24,6 @@ import {
   mdbNavbarToggler,
   mdbNavbarNav,
   mdbNavItem,
-  mdbInput,
-  mdbBtn,
-  mdbFormInline,
 } from "mdbvue";
 export default {
   name: "Header",
@@ -40,9 +33,6 @@ export default {
     mdbNavbarToggler,
     mdbNavbarNav,
     mdbNavItem,
-    mdbInput,
-    mdbBtn,
-    mdbFormInline,
   },
   methods: {
     dc() {
