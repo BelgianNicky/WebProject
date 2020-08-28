@@ -123,6 +123,7 @@ export default {
             
           }
           if(!this.resp.boolean){
+            alert(this.resp.error);
             console.log(this.resp.boolean);
             console.log(this.resp.error);
           }
