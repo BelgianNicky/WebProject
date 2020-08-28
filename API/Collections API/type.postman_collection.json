@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "3f5fb77e-7489-4af8-a68e-2b2a2443d467",
+		"name": "type",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8e57c4f-33d5-4c26-a77e-b85360eeb964",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://51.210.149.38:3000/api/type?categorieId=2",
+					"protocol": "http",
+					"host": [
+						"51",
+						"210",
+						"149",
+						"38"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"type"
+					],
+					"query": [
+						{
+							"key": "categorieId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

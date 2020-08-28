@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "81885ec8-8df8-4161-b8a7-671c69b5eab9",
+		"name": "commande",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://51.210.149.38:3000/api/commande?panierId=1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://51.210.149.38:3000/api/commande?panierId=1",
+					"protocol": "http",
+					"host": [
+						"51",
+						"210",
+						"149",
+						"38"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"commande"
+					],
+					"query": [
+						{
+							"key": "panierId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
